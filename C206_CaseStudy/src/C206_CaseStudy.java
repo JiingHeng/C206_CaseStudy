@@ -6,6 +6,7 @@ public class C206_CaseStudy {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		//Adding student to an ArrayList
 		ArrayList<Student> studentList  = new ArrayList<Student>();
 		Student James = new Student("James", "20012345", "P4", "Desmond Lee", "Tom", "Tom@gmail.com", 12345678);
 		Student Molly = new Student("Molly", "20012344", "P3", "Desmond Lee", "Grace", "Grace@gmail.com", 23456780);
@@ -20,6 +21,8 @@ public class C206_CaseStudy {
 		
 		C206_CaseStudy.loginToSystem();
 		
+		
+		//For registering to the system
 		String studentName = Helper.readString("Enter Student Name: "); 
 		String studentID = Helper.readString("Enter Student ID: ");
 		String classGrade = Helper.readString("Enter Student's Class Grade: ");
@@ -34,7 +37,9 @@ public class C206_CaseStudy {
 		
 		C206_CaseStudy.loginToSystem();
 	}
-
+	
+	
+	//Just Part of the UI to say show the user
 	public static void loginToSystem() {
 		Helper.line(30, "=");
 		System.out.println("LOGIN TO SYSTEM");
