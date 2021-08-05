@@ -8,7 +8,7 @@ public class C206_CaseStudy {
 
 		
 		Student James = new Student("James", "20012345", "P4", "Desmond Lee", "Tom", "Tom@gmail.com", 12345678);
-		Student Molly = new Student("Molly", "20012344", "P3", "Desmond Lee", "Grace", "Grace@gmail.com", 23456789);
+		Student Molly = new Student("Molly", "20012344", "P3", "Desmond Lee", "Grace", "Grace@gmail.com", 23456780);
 		ArrayList<Student> studentList  = new ArrayList<Student>();
 		C206_CaseStudy.loginToSystem();
 		String studentName = Helper.readString("Enter Student Name: "); 
