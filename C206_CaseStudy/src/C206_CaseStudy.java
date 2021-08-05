@@ -28,9 +28,7 @@ public class C206_CaseStudy {
 		System.out.println("Enter 2 to register an account");
 		
 		//For user to login or register to the system
-		int loginRegister = Helper.readInt("Enter: ");
-		while(true) {
-			
+		int loginRegister = Helper.readInt("Enter: ");			
 			while(loginRegister != 5) {
 			
 				if(loginRegister == 1) { //To Login to the system
@@ -41,64 +39,50 @@ public class C206_CaseStudy {
 						
 						if (option == 1) {
 							// write code for student/parent login
+							
+							
 						} else if (option == 2) {
 							// write code for CCA Coordinator login
 						} else {
 							System.out.println("Invalid option!");
 						}
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-			if (option == 1) {
-				// write code for student/parent login
-				System.out.println("WHO ARE YOU?");
-				int userOption = Helper.readInt("Enter choice > ");
-				System.out.println("1. Parent");
-				System.out.println("2. P4 and above Student");
-				if(userOption == 1) {
-					
-				}else if(userOption == 2) {
-					
-				}
-			} else if (option == 2) {
-				// write code for CCA Coordinator login
-			} else {
-				System.out.println("Invalid option!");
-			}
-
-		}
-		
-		
-		
-	
-		
-		
-=======
->>>>>>> branch 'master' of https://github.com/JiingHeng/C206_CaseStudy.git
-=======
 					}
-				
+
 				} else if(loginRegister == 2) { //For registering to the system
-					
-					String studentName = Helper.readString("Enter Student Name: ");
-					String studentID = Helper.readString("Enter Student ID: ");
-					String classGrade = Helper.readString("Enter Student's Class Grade: ");
-					String teacherName = Helper.readString("Enter Teacher's Name: ");
-					String parentName = Helper.readString("Enter Parent's Name: ");
-					String parentEmail = Helper.readString("Enter Parent's Email: ");
-					int parentNumber = Helper.readInt("Enter Parent's Contact Number: ");
-					
-					Student newStudent = new Student(studentName, studentID, classGrade, teacherName, parentName, parentEmail, parentNumber);
-					studentList.add(newStudent);
-				
-				}
-			}
 						
-		}
-			
->>>>>>> branch 'master' of https://github.com/JiingHeng/C206_CaseStudy.git
-	}
+						String studentName = Helper.readString("Enter Student Name: ");
+						String studentID = Helper.readString("Enter Student ID: ");
+						String classGrade = Helper.readString("Enter Student's Class Grade: ");
+						String teacherName = Helper.readString("Enter Teacher's Name: ");
+						String parentName = Helper.readString("Enter Parent's Name: ");
+						String parentEmail = Helper.readString("Enter Parent's Email: ");
+						int parentNumber = Helper.readInt("Enter Parent's Contact Number: ");
+						
+						Student newStudent = new Student(studentName, studentID, classGrade, teacherName, parentName, parentEmail, parentNumber);
+						studentList.add(newStudent);
+					
+				} 
+			}			
+		}			
 	
+//		if (option == 1) {
+//		// write code for student/parent login
+//		System.out.println("WHO ARE YOU?");
+//		int userOption = Helper.readInt("Enter choice > ");
+//		System.out.println("1. Parent");
+//		System.out.println("2. P4 and above Student");
+//		if(userOption == 1) {
+//			
+//		}else if(userOption == 2) {
+//			
+//		}
+//		
+//	} else if (option == 2) {
+//		// write code for CCA Coordinator login
+//	} else {
+//		System.out.println("Invalid option!");
+//	}
+		
 
 	private static void addStudent() {
 		// For registering to the system
@@ -124,7 +108,6 @@ public class C206_CaseStudy {
 		System.out.println("3. Admin");
 	}
 
-<<<<<<< HEAD
 	public static void Menu() {
 
 		Helper.line(30, "=");
@@ -137,8 +120,6 @@ public class C206_CaseStudy {
 	
 	}
 	
-=======
->>>>>>> branch 'master' of https://github.com/JiingHeng/C206_CaseStudy.git
 	public static void setHeader(String header) {
 		Helper.line(80, "-");
 		System.out.println(header);
