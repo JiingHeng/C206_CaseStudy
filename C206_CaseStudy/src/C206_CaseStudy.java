@@ -19,17 +19,16 @@ public class C206_CaseStudy {
 		ccaList.add(scouts);
 		ccaList.add(football);
 		
+		Menu();
 		int option = Helper.readInt("Enter choice > ");
 		while (option != 5) {
 
-			Menu();
+			
 			
 			if (option == 1) {
-				// write code here
+				// write code for student/parent login
 			} else if (option == 2) {
-				// write code here
-			} else if (option == 3) {
-				// write code here
+				// write code for CCA Coordinator login
 			} else {
 				System.out.println("Invalid option!");
 			}
@@ -66,30 +65,13 @@ public class C206_CaseStudy {
 	public static void Menu() {
 
 		Helper.line(30, "=");
-		System.out.println("Student/Parents");
+		System.out.println("Login");
 		Helper.line(30, "=");
 
-		System.out.println("1. View all CCA");
-		System.out.println("2. View Student's CCA");
-		System.out.println("3. Delete Student's CCA");
+		System.out.println("1. Student/Parent Login");
+		System.out.println("2. CCA Coordinator Login");
 
-		int option = -1;
-
-		while (option != 5) {
-
-			Menu();
-			option = Helper.readInt("Enter choice > ");
-			if (option == 1) {
-				// write code here
-			} else if (option == 2) {
-				// write code here
-			} else if (option == 3) {
-				// write code here
-			} else {
-				System.out.println("Invalid option!");
-			}
-
-		}
+	
 	}
 
 }
