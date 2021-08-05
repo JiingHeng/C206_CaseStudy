@@ -6,10 +6,10 @@
  * Student Name: Tay Hao Wen
  * Student ID: 20042303
  * Class: E37C
- * Date/Time created: Thursday 05-08-2021 11:31
+ * Date/Time created: Thursday 05-08-2021 17:11
  */
 
-public class Student {
+public class registeredUser {
 	private String name;
 	private int studentID;
 	private String gradeClass;
@@ -17,9 +17,10 @@ public class Student {
 	private String parentName;
 	private String parentEmail;
 	private int parentContactNo;
+	private int regID;
 	
-	public Student(String name, int studentID, String gradeClass, String teacher, String parentName, 
-			String parentEmail, int parentContactNo) {
+	public registeredUser(String name, int studentID, String gradeClass, String teacher, String parentName,
+			String parentEmail, int parentContactNo, int regID) {
 		super();
 		this.name = name;
 		this.studentID = studentID;
@@ -28,6 +29,7 @@ public class Student {
 		this.parentName = parentName;
 		this.parentEmail = parentEmail;
 		this.parentContactNo = parentContactNo;
+		this.regID = regID;
 	}
 
 	public String getName() {
@@ -84,6 +86,14 @@ public class Student {
 
 	public void setParentContactNo(int parentContactNo) {
 		this.parentContactNo = parentContactNo;
+	}
+
+	public int getRegID() {
+		return regID;
+	}
+
+	public void setRegID(int regID) {
+		this.regID = regID;
 	}
 	
 	
