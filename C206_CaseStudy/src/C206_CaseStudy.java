@@ -47,6 +47,35 @@ public class C206_CaseStudy {
 							System.out.println("Invalid option!");
 						}
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+			if (option == 1) {
+				// write code for student/parent login
+				System.out.println("WHO ARE YOU?");
+				int userOption = Helper.readInt("Enter choice > ");
+				System.out.println("1. Parent");
+				System.out.println("2. P4 and above Student");
+				if(userOption == 1) {
+					
+				}else if(userOption == 2) {
+					
+				}
+			} else if (option == 2) {
+				// write code for CCA Coordinator login
+			} else {
+				System.out.println("Invalid option!");
+			}
+
+		}
+		
+		
+		
+	
+		
+		
+=======
+>>>>>>> branch 'master' of https://github.com/JiingHeng/C206_CaseStudy.git
+=======
 					}
 				
 				} else if(loginRegister == 2) { //For registering to the system
@@ -67,6 +96,7 @@ public class C206_CaseStudy {
 						
 		}
 			
+>>>>>>> branch 'master' of https://github.com/JiingHeng/C206_CaseStudy.git
 	}
 	
 
@@ -94,6 +124,21 @@ public class C206_CaseStudy {
 		System.out.println("3. Admin");
 	}
 
+<<<<<<< HEAD
+	public static void Menu() {
+
+		Helper.line(30, "=");
+		System.out.println("WELCOME TO CCA REGISTRATION");
+		Helper.line(30, "=");
+
+		System.out.println("1. New user register for CCA");
+		System.out.println("2. Parent/Student Login");
+		System.out.println("3. CCA Coordinator Login");
+	
+	}
+	
+=======
+>>>>>>> branch 'master' of https://github.com/JiingHeng/C206_CaseStudy.git
 	public static void setHeader(String header) {
 		Helper.line(80, "-");
 		System.out.println(header);
