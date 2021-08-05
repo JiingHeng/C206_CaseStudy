@@ -25,6 +25,15 @@ public class C206_CaseStudy {
 
 			if (option == 1) {
 				// write code for student/parent login
+				System.out.println("WHO ARE YOU?");
+				int userOption = Helper.readInt("Enter choice > ");
+				System.out.println("1. Parent");
+				System.out.println("2. P4 and above Student");
+				if(userOption == 1) {
+					
+				}else if(userOption == 2) {
+					
+				}
 			} else if (option == 2) {
 				// write code for CCA Coordinator login
 			} else {
