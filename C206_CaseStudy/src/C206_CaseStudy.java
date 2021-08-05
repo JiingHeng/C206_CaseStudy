@@ -23,8 +23,6 @@ public class C206_CaseStudy {
 		int option = Helper.readInt("Enter choice > ");
 		while (option != 5) {
 
-			
-			
 			if (option == 1) {
 				// write code for student/parent login
 			} else if (option == 2) {
@@ -65,12 +63,12 @@ public class C206_CaseStudy {
 	public static void Menu() {
 
 		Helper.line(30, "=");
-		System.out.println("Login");
+		System.out.println("WELCOME TO CCA REGISTRATION");
 		Helper.line(30, "=");
 
-		System.out.println("1. Student/Parent Login");
-		System.out.println("2. CCA Coordinator Login");
-
+		System.out.println("1. New user register for CCA");
+		System.out.println("2. Parent/Student Login");
+		System.out.println("3. CCA Coordinator Login");
 	
 	}
 
