@@ -12,7 +12,9 @@ public class C206_CaseStudy {
 		Student Molly = new Student("Molly", "20012344", "P3", "Desmond Lee", "Grace", "Grace@gmail.com", 23456780);
 		studentList.add(James);
 		studentList.add(Molly);
-
+		
+		
+		//Adding CCA to CCALIST
 		ArrayList<CCA> ccaList = new ArrayList<CCA>();
 		CCA scouts = new CCA("Scouts", "Learn survival skills!", 20, "Friday", "3pm-7pm", "Back of School", "Denzel");
 		CCA football = new CCA("Football", "Do you think you are the next futbol star?", 20, "Monday", "2pm-5pm",
@@ -32,7 +34,7 @@ public class C206_CaseStudy {
 			while(loginRegister != 5) {
 			
 				if(loginRegister == 1) { //To Login to the system
-					Menu();
+					studentMenu();
 					//For user to choose which kind of login 
 					int option = Helper.readInt("Enter choice > ");
 					while (option != 5) {
@@ -48,17 +50,18 @@ public class C206_CaseStudy {
 					}
 				
 				} else if(loginRegister == 2) { //For registering to the system
-					String studentName = Helper.readString("Enter Student Name: "); 
+					
+					String studentName = Helper.readString("Enter Student Name: ");
 					String studentID = Helper.readString("Enter Student ID: ");
 					String classGrade = Helper.readString("Enter Student's Class Grade: ");
 					String teacherName = Helper.readString("Enter Teacher's Name: ");
 					String parentName = Helper.readString("Enter Parent's Name: ");
 					String parentEmail = Helper.readString("Enter Parent's Email: ");
 					int parentNumber = Helper.readInt("Enter Parent's Contact Number: ");
-					String registrationID = "";
-				
+					
 					Student newStudent = new Student(studentName, studentID, classGrade, teacherName, parentName, parentEmail, parentNumber);
 					studentList.add(newStudent);
+				
 				}
 			}
 						
@@ -76,6 +79,9 @@ public class C206_CaseStudy {
 		String parentName = Helper.readString("Enter Parent's Name: ");
 		String parentEmail = Helper.readString("Enter Parent's Email: ");
 		int parentNumber = Helper.readInt("Enter Parent's Contact Number: ");
+		
+		
+		
 	}
 
 	// Just Part of the UI to say show the user
@@ -93,8 +99,8 @@ public class C206_CaseStudy {
 		System.out.println(header);
 		Helper.line(80, "-");
 	}
+	
 	//To retrieve the CCAList
-
 	private static String retrieveCCAList(ArrayList<CCA> ccaList) {
 		String output = "";
 
@@ -115,21 +121,20 @@ public class C206_CaseStudy {
 		System.out.println("1. Register ");
 		System.out.println("2. Login");
 
-		int option = -1;
-
-		while (option != 3) {
-
-			studentMenu();
-			option = Helper.readInt("Enter choice > ");
-			if (option == 1) {
-				// write code here
-			} else if (option == 2) {
-				// write code here
-			} else {
-				System.out.println("Invalid option!");
-			}
-
-		}
+//		int option = -1;
+//
+//		while (option != 3) {
+//			studentMenu();
+//			option = Helper.readInt("Enter choice > ");
+//			if (option == 1) {
+//				// write code here
+//			} else if (option == 2) {
+//				// write code here
+//			} else {
+//				System.out.println("Invalid option!");
+//			}
+//
+//		}
 	}
 
 	public static void parentMenu() {
@@ -172,6 +177,7 @@ public class C206_CaseStudy {
 	//To let the user login (Not Completed Yet)
 	public static boolean doStudentParentLogin(Student student, String studentID , String registrationID) {
 		boolean access = false;
+		
 		if(studentID.equals(student.getStudentID()) && registrationID.equals(registrationID)) { //not done
 			access = true;
 		}
