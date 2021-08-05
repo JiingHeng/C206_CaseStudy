@@ -73,5 +73,30 @@ public class C206_CaseStudy {
 
 	
 	}
+	
+	public static void setHeader(String header) {
+		Helper.line(80, "-");
+		System.out.println(header);
+		Helper.line(80, "-");
+	}
+	
+	private static String retrieveCCAList(ArrayList<CCA> ccaList) {
+		String output = "";
+
+		for (int i = 0; i < ccaList.size(); i++) {
+
+			output += String.format("%-10s %-30s %-10d %-10s %-20s %-10s %-20s\n", ccaList.get(i).getTitle(),
+					ccaList.get(i).getDescription(), ccaList.get(i).getSize(), ccaList.get(i).getDay(), ccaList.get(i).getTime(), ccaList.get(i).getVenue(), ccaList.get(i).getInstructor());
+		}
+		return output;
+	}
+	
+	public static void viewAllCCA(ArrayList<CCA> ccaList) {
+		C206_CaseStudy.setHeader("CCA LIST");
+		String output = String.format("%-10s %-30s %-10d %-10s %-20s %-10s %-20s\n", "CCA NAME", "DESCRIPTION",
+				"CCA CAPACITY", "DAY","TIME", "VENUE", "INSTRUCTOR");
+		 output += retrieveCCAList(ccaList);	
+		System.out.println(output);
+	}
 
 }
