@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 
+
 public class C206_CaseStudy {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+
 		
 		Student James = new Student("James", "20012345", "P4", "Desmond Lee", "Tom", "Tom@gmail.com", 12345678);
 		Student Molly = new Student("Molly", "20012344", "P3", "Desmond Lee", "Grace", "Grace@gmail.com", 23456789);
@@ -17,18 +19,15 @@ public class C206_CaseStudy {
 		int parentNumber = Helper.readInt("Enter Parent's Contact Number: ");
 		System.out.println(studentList);
 		
-		
-		C206_CaseStudy.Menu();
-
+		C206_CaseStudy.loginToSystem();
 	}
-	
-	
+
 	public static void loginToSystem() {
 		Helper.line(30, "=");
 		System.out.println("LOGIN TO SYSTEM");
 		Helper.line(30, "=");
 	}
-	
+
 	public static void Menu() {
 
 		Helper.line(30, "=");
@@ -39,6 +38,23 @@ public class C206_CaseStudy {
 		System.out.println("2. View Student's CCA");
 		System.out.println("3. Delete Student's CCA");
 
+		int option = -1;
+
+		while (option != 5) {
+
+			Menu();
+			option = Helper.readInt("Enter choice > ");
+			if (option == 1) {
+				// write code here
+			} else if (option == 2) {
+				// write code here
+			} else if (option == 3) {
+				// write code here
+			} else {
+				System.out.println("Invalid option!");
+			}
+
+		}
 	}
 
 }
