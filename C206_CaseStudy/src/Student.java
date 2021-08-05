@@ -18,7 +18,7 @@ public class Student {
 	private String parentEmail;
 	private int parentContactNo;
 	
-	public Student(String name, String studentID, String gradeClass, String teacher, String parentName,
+	public Student(String name, String studentID, String gradeClass, String teacher, String parentName, 
 			String parentEmail, int parentContactNo) {
 		super();
 		this.name = name;
