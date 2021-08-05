@@ -19,9 +19,32 @@ public class C206_CaseStudy {
 		ccaList.add(scouts);
 		ccaList.add(football);
 		
-		C206_CaseStudy.loginToSystem();
+		int option = Helper.readInt("Enter choice > ");
+		while (option != 5) {
+
+			Menu();
+			
+			if (option == 1) {
+				// write code here
+			} else if (option == 2) {
+				// write code here
+			} else if (option == 3) {
+				// write code here
+			} else {
+				System.out.println("Invalid option!");
+			}
+
+		}
 		
 		
+		
+	
+		
+		
+	}
+
+
+	private static void addStudent() {
 		//For registering to the system
 		String studentName = Helper.readString("Enter Student Name: "); 
 		String studentID = Helper.readString("Enter Student ID: ");
@@ -30,12 +53,6 @@ public class C206_CaseStudy {
 		String parentName = Helper.readString("Enter Parent's Name: ");
 		String parentEmail = Helper.readString("Enter Parent's Email: ");
 		int parentNumber = Helper.readInt("Enter Parent's Contact Number: ");
-		
-		Student newStudent = new Student(studentName, studentID, classGrade, teacherName, parentName, parentEmail, parentNumber);
-		
-		System.out.println(studentList);
-		
-		C206_CaseStudy.loginToSystem();
 	}
 	
 	
