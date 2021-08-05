@@ -45,8 +45,7 @@ public class C206_CaseStudy {
 							System.out.println("Invalid option!");
 						}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 			if (option == 1) {
 				// write code for student/parent login
 				System.out.println("WHO ARE YOU?");
@@ -71,9 +70,7 @@ public class C206_CaseStudy {
 	
 		
 		
-=======
->>>>>>> branch 'master' of https://github.com/JiingHeng/C206_CaseStudy.git
-=======
+
 					}
 				
 				} else if(loginRegister == 2) { //For registering to the system
@@ -93,8 +90,8 @@ public class C206_CaseStudy {
 						
 		}
 			
->>>>>>> branch 'master' of https://github.com/JiingHeng/C206_CaseStudy.git
-	}
+
+	
 	
 
 	private static void addStudent() {
@@ -118,7 +115,7 @@ public class C206_CaseStudy {
 		System.out.println("3. Admin");
 	}
 
-<<<<<<< HEAD
+
 	public static void Menu() {
 
 		Helper.line(30, "=");
@@ -131,9 +128,7 @@ public class C206_CaseStudy {
 	
 	}
 	
-=======
->>>>>>> branch 'master' of https://github.com/JiingHeng/C206_CaseStudy.git
-	public static void setHeader(String header) {
+ static void setHeader(String header) {
 		Helper.line(80, "-");
 		System.out.println(header);
 		Helper.line(80, "-");
