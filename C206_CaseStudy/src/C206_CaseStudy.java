@@ -20,53 +20,36 @@ public class C206_CaseStudy {
 		ccaList.add(scouts);
 		ccaList.add(football);
 
-		C206_CaseStudy.loginToSystem();
-		// Login in to system
-		System.out.println("Enter 1 to login");
-		System.out.println("Enter 2 to register an account");
+		C206_CaseStudy.Menu();
 
-		// For user to login or register to the system
-		int loginRegister = Helper.readInt("Enter: ");
-		while (true) {
+		// For user to choose which kind of login
+		int option = Helper.readInt("Enter choice > ");
+		while (option != 5) {
 
-			while (loginRegister != 5) {
+			if (option == 1) {
+				// write code for student/parent login
+				addStudent();
 
-				if (loginRegister == 1) { // To Login to the system
-					Menu();
-					// For user to choose which kind of login
-					int option = Helper.readInt("Enter choice > ");
-					while (option != 5) {
+			} else if (option == 2) {
+				// write code for CCA Coordinator login
+			} else if (option == 3) {
+				// Register
+				String studentName = Helper.readString("Enter Student Name: ");
+				String studentID = Helper.readString("Enter Student ID: ");
+				String classGrade = Helper.readString("Enter Student's Class Grade: ");
+				String teacherName = Helper.readString("Enter Teacher's Name: ");
+				String parentName = Helper.readString("Enter Parent's Name: ");
+				String parentEmail = Helper.readString("Enter Parent's Email: ");
+				int parentNumber = Helper.readInt("Enter Parent's Contact Number: ");
+				String registrationID = "";
 
-						if (option == 1) {
-							// write code for student/parent login
-							System.out.println("WHO ARE YOU?");
-							int userOption = Helper.readInt("Enter choice > ");
-							System.out.println("1. Parent");
-							System.out.println("2. P4 and above Student");
-
-						} else if (option == 2) {
-							// write code for CCA Coordinator login
-						} else if (option == 3) {
-							// Register
-							String studentName = Helper.readString("Enter Student Name: ");
-							String studentID = Helper.readString("Enter Student ID: ");
-							String classGrade = Helper.readString("Enter Student's Class Grade: ");
-							String teacherName = Helper.readString("Enter Teacher's Name: ");
-							String parentName = Helper.readString("Enter Parent's Name: ");
-							String parentEmail = Helper.readString("Enter Parent's Email: ");
-							int parentNumber = Helper.readInt("Enter Parent's Contact Number: ");
-							String registrationID = "";
-
-							Student newStudent = new Student(studentName, studentID, classGrade, teacherName,
-									parentName, parentEmail, parentNumber);
-							studentList.add(newStudent);
-						} else {
-							System.out.println("Invalid option!");
-						}
-
-					}
-				}
+				Student newStudent = new Student(studentName, studentID, classGrade, teacherName, parentName,
+						parentEmail, parentNumber);
+				studentList.add(newStudent);
+			} else {
+				System.out.println("Invalid option!");
 			}
+
 		}
 
 	}
@@ -80,6 +63,8 @@ public class C206_CaseStudy {
 		String parentName = Helper.readString("Enter Parent's Name: ");
 		String parentEmail = Helper.readString("Enter Parent's Email: ");
 		int parentNumber = Helper.readInt("Enter Parent's Contact Number: ");
+		
+		
 	}
 
 	// Just Part of the UI to say show the user
@@ -98,7 +83,7 @@ public class C206_CaseStudy {
 		System.out.println("WELCOME TO CCA REGISTRATION");
 		Helper.line(30, "=");
 
-		System.out.println("1. New user register for CCA");
+		System.out.println("1. New user register");
 		System.out.println("2. Parent/Student Login");
 		System.out.println("3. CCA Coordinator Login");
 
