@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class C206_CaseStudy {
-
+//lol
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
