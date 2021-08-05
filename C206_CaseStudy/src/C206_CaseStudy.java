@@ -6,10 +6,18 @@ public class C206_CaseStudy {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		
+		ArrayList<Student> studentList  = new ArrayList<Student>();
 		Student James = new Student("James", "20012345", "P4", "Desmond Lee", "Tom", "Tom@gmail.com", 12345678);
 		Student Molly = new Student("Molly", "20012344", "P3", "Desmond Lee", "Grace", "Grace@gmail.com", 23456780);
-		ArrayList<Student> studentList  = new ArrayList<Student>();
+		studentList.add(James);
+		studentList.add(Molly);
+		
+		ArrayList<CCA> ccaList = new ArrayList<CCA>();
+		CCA scouts = new CCA(01, "Scouts", "Learn survival skills!", "20", "Friday", "3pm-7pm", "Back of School", "Denzel");
+		CCA football = new CCA(02, "Football", "Do you think you are the next futbol star?", "20", "Monday", "2pm-5pm", "Football Field", "Jonathan");
+		ccaList.add(scouts);
+		ccaList.add(football);
+		
 		C206_CaseStudy.loginToSystem();
 		String studentName = Helper.readString("Enter Student Name: "); 
 		String studentID = Helper.readString("Enter Student ID: ");
