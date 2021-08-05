@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class C206_CaseStudy {
@@ -20,18 +21,32 @@ public class C206_CaseStudy {
 		ccaList.add(football);
 		
 		C206_CaseStudy.loginToSystem();
+		System.out.println("Enter 1 to login");
+		System.out.println("Enter 2 to register an account");
+		int loginRegister = Helper.readInt("Enter: ");
 		
 		
-		//For registering to the system
-		String studentName = Helper.readString("Enter Student Name: "); 
-		String studentID = Helper.readString("Enter Student ID: ");
-		String classGrade = Helper.readString("Enter Student's Class Grade: ");
-		String teacherName = Helper.readString("Enter Teacher's Name: ");
-		String parentName = Helper.readString("Enter Parent's Name: ");
-		String parentEmail = Helper.readString("Enter Parent's Email: ");
-		int parentNumber = Helper.readInt("Enter Parent's Contact Number: ");
+		if(loginRegister == 1) { //To Login to the system
+			
+			
+			
+		} else if(loginRegister == 2) { //For registering to the system
+			String studentName = Helper.readString("Enter Student Name: "); 
+			String studentID = Helper.readString("Enter Student ID: ");
+			String classGrade = Helper.readString("Enter Student's Class Grade: ");
+			String teacherName = Helper.readString("Enter Teacher's Name: ");
+			String parentName = Helper.readString("Enter Parent's Name: ");
+			String parentEmail = Helper.readString("Enter Parent's Email: ");
+			int parentNumber = Helper.readInt("Enter Parent's Contact Number: ");
+			String registrationID = "";
+			
+			
+			Student newStudent = new Student(studentName, studentID, classGrade, teacherName, parentName, parentEmail, parentNumber);
+			studentList.add(newStudent);
+		}
 		
-		Student newStudent = new Student(studentName, studentID, classGrade, teacherName, parentName, parentEmail, parentNumber);
+		
+		
 		
 		System.out.println(studentList);
 		
@@ -73,6 +88,31 @@ public class C206_CaseStudy {
 			}
 
 		}
+	}
+	
+	//To let the user login (Not Completed Yet)
+	public static boolean doStudentParentLogin(Student student, String studentID , String registrationID) {
+		boolean access = false;
+		if(studentID.equals(student.getStudentID()) && registrationID.equals(registrationID)) { //not done
+			access = true;
+		}
+		return access;
+	}
+	
+	public static Student randomID(Student student) {
+		String choices = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890";
+		String reset = "";
+		Random rand = new Random();
+		for (int i = 0; i < 5; i++) {
+			int outcome = rand.nextInt(62);
+			char output = choices.charAt(outcome);
+			reset += output;
+		}
+		
+		reset = String.format("%s", reset);
+		student.setStudentID(reset);
+
+		return student;
 	}
 
 }
