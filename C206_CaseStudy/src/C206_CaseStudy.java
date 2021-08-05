@@ -13,8 +13,8 @@ public class C206_CaseStudy {
 		studentList.add(Molly);
 		
 		ArrayList<CCA> ccaList = new ArrayList<CCA>();
-		CCA scouts = new CCA(01, "Scouts", "Learn survival skills!", 20, "Friday", "3pm-7pm", "Back of School", "Denzel");
-		CCA football = new CCA(02, "Football", "Do you think you are the next futbol star?", 20, "Monday", "2pm-5pm", "Football Field", "Jonathan");
+		CCA scouts = new CCA("Scouts", "Learn survival skills!", 20, "Friday", "3pm-7pm", "Back of School", "Denzel");
+		CCA football = new CCA("Football", "Do you think you are the next futbol star?", 20, "Monday", "2pm-5pm", "Football Field", "Jonathan");
 		ccaList.add(scouts);
 		ccaList.add(football);
 		
