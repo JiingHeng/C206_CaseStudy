@@ -28,7 +28,7 @@ public class C206_CaseStudy {
 		System.out.println("Enter 2 to register an account");
 		
 		//For user to login or register to the system
-		int loginRegister = Helper.readInt("Enter: ");			
+		int loginRegister = Helper.readInt("Enter: ");	
 			while(loginRegister != 5) {
 			
 				if(loginRegister == 1) { //To Login to the system
@@ -65,7 +65,7 @@ public class C206_CaseStudy {
 //			} else {
 //				System.out.println("Invalid option!");
 //			}
-//
+
 		}
 
 				} else if(loginRegister == 2) { //For registering to the system
@@ -110,7 +110,7 @@ public class C206_CaseStudy {
 		System.out.println("3. Admin");
 	}
 
-	public static void Menu() {
+	public static void ccaMenu() {
 
 		Helper.line(30, "=");
 		System.out.println("WELCOME TO CCA REGISTRATION");
