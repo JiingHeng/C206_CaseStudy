@@ -67,6 +67,7 @@ public class C206_CaseStudy {
 		System.out.println("1. Student");
 		System.out.println("2. Parent");
 		System.out.println("3. Admin");
+	}
 
 <<<<<<< HEAD
 	public static void Menu() {
@@ -91,6 +92,13 @@ public class C206_CaseStudy {
 
 	private static String retrieveCCAList(ArrayList<CCA> ccaList) {
 		String output = "";
+		for (int i = 0; i < ccaList.size(); i++) {
+
+			output += String.format("%-10s %-30s %-10d %-10s %-20s %-10s %-20s\n", ccaList.get(i).getTitle(),
+					ccaList.get(i).getDescription(), ccaList.get(i).getSize(), ccaList.get(i).getDay(), ccaList.get(i).getTime(), ccaList.get(i).getVenue(), ccaList.get(i).getInstructor());
+		}
+		return output;
+	}
 
 	public static void studentMenu() {
 
@@ -143,12 +151,7 @@ public class C206_CaseStudy {
 			} else {
 				System.out.println("Invalid option!");
 			}
-
-			output += String.format("%-10s %-30s %-10d %-10s %-20s %-10s %-20s\n", ccaList.get(i).getTitle(),
-					ccaList.get(i).getDescription(), ccaList.get(i).getSize(), ccaList.get(i).getDay(),
-					ccaList.get(i).getTime(), ccaList.get(i).getVenue(), ccaList.get(i).getInstructor());
 		}
-		return output;
 	}
 
 	public static void viewAllCCA(ArrayList<CCA> ccaList) {
