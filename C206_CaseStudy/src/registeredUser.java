@@ -31,6 +31,14 @@ public class registeredUser {
 		this.parentContactNo = parentContactNo;
 		this.regID = regID;
 	}
+	public registeredUser(String name, int studentID, String gradeClass, String teacher, int regID) {
+		super();
+		this.name = name;
+		this.studentID = studentID;
+		this.gradeClass = gradeClass;
+		this.teacher = teacher;
+		this.regID = regID;
+	}
 
 	public String getName() {
 		return name;
