@@ -34,10 +34,13 @@ public class C206_CaseStudy {
 
 		Menu();
 
-		// For user to choose which kind of login
+		// ----------------------------For user to choose which kind of login ---------------------------------- //
+		
 		int option = Helper.readInt("Enter choice > ");
 		while (option != 4) {
 
+			
+		// ---------------------------- New User Register -----------------------------------------------// 
 			if (option == 1) {
 				// Add registered user
 				String studentName = Helper.readString("Enter Student Name: ");
@@ -68,7 +71,7 @@ public class C206_CaseStudy {
 						
 					}
 				}
-
+				// ---------------------------- Parent/Student Login -----------------------------------------------// 
 			} else if (option == 2) {
 				// write code for student/parent login
 				boolean login = false;
@@ -84,8 +87,12 @@ public class C206_CaseStudy {
 				if (login == false) {
 					System.out.println("Wrong Student ID or Registration ID");
 				}
+			
+				
+				
+				// ---------------------------- CCA coord Login -----------------------------------------------// 
+			
 			} else if (option == 3) {
-				// CCA Coordinator Login
 				String username = Helper.readString("Enter username > ");
 				String password = Helper.readString("Enter password > ");
 				if (username.equalsIgnoreCase("admin") && password.equals("admin")) {
