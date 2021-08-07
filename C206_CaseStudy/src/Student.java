@@ -29,6 +29,14 @@ public class Student {
 		this.parentEmail = parentEmail;
 		this.parentContactNo = parentContactNo;
 	}
+	
+	public Student(String name, int studentID, String gradeClass, String teacher) {
+		super();
+		this.name = name;
+		this.studentID = studentID;
+		this.gradeClass = gradeClass;
+		this.teacher = teacher;
+	}
 
 	public String getName() {
 		return name;
