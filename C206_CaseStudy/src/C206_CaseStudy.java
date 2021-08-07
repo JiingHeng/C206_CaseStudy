@@ -109,14 +109,6 @@ public class C206_CaseStudy {
 					System.out.println("Wrong username or password");
 				}
 
-			} else if (option == 4){
-				//Add CCA
-				
-			} else if (option == 5) {
-				//View CCA
-				
-			} else if (option == 6) {
-				//Add CCA category
 				
 			} else if (option == 7) {
 				//To delete CCA
@@ -246,7 +238,7 @@ public class C206_CaseStudy {
 		return output;
 	}
 
-	// To View all CCA
+	// ---------------------------USER STORY 7 - To View all CCA ------------------------------- //
 	public static void viewAllCCA(ArrayList<CCA> ccaList) {
 		C206_CaseStudy.setHeader("CCA LIST");
 		String output = String.format("%-10s %-30s %-10d %-10s %-20s %-10s %-20s\n", "CCA NAME", "DESCRIPTION",
@@ -294,52 +286,9 @@ public class C206_CaseStudy {
 
 	
 
-	public static void adminMenu() {
 
-		Helper.line(30, "=");
-		System.out.println("Admin Profile");
-		Helper.line(30, "=");
+    // ----------------------------------------- USER STORY 8 - DELETE CCA -------------------------------- //
 
-		System.out.println("1. Add Student to the System");
-		System.out.println("2. View Students/Parents");
-		System.out.println("3. Delete Students/Parents");
-		System.out.println("4. Add CCA");
-		System.out.println("5. Edit CCA");
-		System.out.println("6. Add CCA Category");
-		System.out.println("7. Delete CCA Category");
-		System.out.println("8. View CCA Category");
-		// add more options if needed
-
-		int option = -1;
-
-		while (option != 3) {
-
-			adminMenu();
-			option = Helper.readInt("Enter choice > ");
-			if (option == 1) {
-				// write code here
-			} else if (option == 2) {
-				// write code here
-			} else if (option == 3) {
-				// write code here
-			} else if (option == 4) {
-				// write code here
-			} else if (option == 5) {
-				// write code here
-			} else if (option == 6) {
-				// write code here
-			} else if (option == 7) {
-				// write code here
-			} else if (option == 8) {
-				// write code here
-			} else {
-				System.out.println("Invalid option!");
-			}
-
-		}
-	}
-	
-	//Delete the CCA
 	public static boolean deleteCCA(ArrayList<CCA> ccaList, String title) {
 		boolean delete = false;
 		for (int i = 0; i < ccaList.size(); i++) {
