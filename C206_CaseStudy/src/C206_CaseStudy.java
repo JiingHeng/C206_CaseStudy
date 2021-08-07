@@ -110,7 +110,7 @@ public class C206_CaseStudy {
 				}
 
 				
-			} else if (option == 7) {
+			// ------------------------ User Story 8 - Delete CCA --------------------------- //
 				//To delete CCA
 				String deleteTitle = Helper.readString("Enter the title of the CCA to be deleted: ");
 				
@@ -148,32 +148,10 @@ public class C206_CaseStudy {
 			}
 		
 	
+    
+  //-------------------------------------------------------------------------------------------- METHODS ---------------------------------------------------------------- // 
 
-	private static void viewAllStudents(ArrayList<Student> studentList) {
-		// View All Student
-		System.out.println(String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s", "Name", "Student ID",
-				"Grade/Class", "Student ID", "Parent Name", "Parent email", "Parent Number"));
-		for (int i = 0; i < studentList.size(); i++) {
-			System.out.println(String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s", studentList.get(i).getName(),
-					studentList.get(i).getStudentID(), studentList.get(i).getGradeClass(),
-					studentList.get(i).getTeacher(), studentList.get(i).getParentName(),
-					studentList.get(i).getParentEmail(), studentList.get(i).getParentContactNo()));
-		}
-	}
-
-	private static void deleteStudent(ArrayList<Student> studentList) {
-		// Delete Student
-		int studentID = Helper.readInt("Enter Student ID to delete > ");
-		for (int i = 0; i < studentList.size(); i++) {
-			if (studentID == studentList.get(i).getStudentID()) {
-				studentList.remove(i);
-				System.out.println("Student ID " + studentID + " is deleted from the system");
-			} else if (i + 1 == studentList.size()) {
-				System.out.println("No student found the system");
-			}
-		}
-	}
-
+	// --------------------------------- USER STORY 1 - Add Student --------------------------------------- // 
 	private static void addStudent(ArrayList<Student> studentList) {
 		// Add Student
 		String studentName = Helper.readString("Enter Student Name: ");
@@ -190,7 +168,53 @@ public class C206_CaseStudy {
 		System.out.println("Student has been added into the system");
 	}
 
-	private static void adminMenuList() {
+	// ----------------------------------- USER STORY 2 - View All Student ---------------------------------//
+		private static void viewAllStudents(ArrayList<Student> studentList) {
+			// View All Student
+			System.out.println(String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s", "Name", "Student ID",
+					"Grade/Class", "Student ID", "Parent Name", "Parent email", "Parent Number"));
+			for (int i = 0; i < studentList.size(); i++) {
+				System.out.println(String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s", studentList.get(i).getName(),
+						studentList.get(i).getStudentID(), studentList.get(i).getGradeClass(),
+						studentList.get(i).getTeacher(), studentList.get(i).getParentName(),
+						studentList.get(i).getParentEmail(), studentList.get(i).getParentContactNo()));
+			}
+		}
+		
+		// ---------------------------------- USER STORY 3 - Delete Student ------------------------------------ // 
+		private static void deleteStudent(ArrayList<Student> studentList) {
+			// Delete Student
+			int studentID = Helper.readInt("Enter Student ID to delete > ");
+			for (int i = 0; i < studentList.size(); i++) {
+				if (studentID == studentList.get(i).getStudentID()) {
+					studentList.remove(i);
+					System.out.println("Student ID " + studentID + " is deleted from the system");
+				} else if (i + 1 == studentList.size()) {
+					System.out.println("No student found the system");
+				}
+			}
+		}
+		
+// ------------------------------------------------------------------------ MENUS ----------------------------------------------------------- // 
+	
+		
+	// ---------- Main Menu -------------- //	
+		public static void Menu() {
+
+			Helper.line(30, "=");
+			System.out.println("WELCOME TO CCA REGISTRATION");
+			Helper.line(30, "=");
+
+			System.out.println("1. New user register");
+			System.out.println("2. Parent/Student Login");
+			System.out.println("3. CCA Coordinator Login");
+			System.out.println("4. Exit");
+
+		}
+		
+		
+	// ---------- CCA Coord Menu -------------- //	
+		private static void adminMenuList() {
 		Helper.line(30, "=");
 		System.out.println("CCA Coordinator Profile");
 		Helper.line(30, "=");
@@ -205,25 +229,37 @@ public class C206_CaseStudy {
 		System.out.println("8. View CCA Category");
 		System.out.println("9. Back");
 	}
-
-	public static void Menu() {
+		
+		// ---------- Parent Menu -------------- //
+	public static void parentMenu() {
 
 		Helper.line(30, "=");
-		System.out.println("WELCOME TO CCA REGISTRATION");
+		System.out.println("Parent Profile");
 		Helper.line(30, "=");
 
-		System.out.println("1. New user register");
-		System.out.println("2. Parent/Student Login");
-		System.out.println("3. CCA Coordinator Login");
-		System.out.println("4. Exit");
+		System.out.println("1. Register for Student");
+		System.out.println("2. Register for Parent");
+		System.out.println("3. Login to System");
 
-	}
+		int option = -1;
 
-	public static void setHeader(String header) {
-		Helper.line(80, "-");
-		System.out.println(header);
-		Helper.line(80, "-");
+		while (option != 3) {
+
+			option = Helper.readInt("Enter choice > ");
+			if (option == 1) {
+				// write code here
+			} else if (option == 2) {
+				// write code here
+			} else if (option == 3) {
+				// write code here
+			} else {
+				System.out.println("Invalid option!");
+			}
+		}
 	}
+	
+
+	
 	
 	// To retrieve the CCAList
 	private static String retrieveCCAList(ArrayList<CCA> ccaList) {
@@ -257,37 +293,7 @@ public class C206_CaseStudy {
 	}
 
 
-	public static void parentMenu() {
-
-		Helper.line(30, "=");
-		System.out.println("Parent Profile");
-		Helper.line(30, "=");
-
-		System.out.println("1. Register for Student");
-		System.out.println("2. Register for Parent");
-		System.out.println("3. Login to System");
-
-		int option = -1;
-
-		while (option != 3) {
-
-			option = Helper.readInt("Enter choice > ");
-			if (option == 1) {
-				// write code here
-			} else if (option == 2) {
-				// write code here
-			} else if (option == 3) {
-				// write code here
-			} else {
-				System.out.println("Invalid option!");
-			}
-		}
-	}
-
-	
-
-
-    // ----------------------------------------- USER STORY 8 - DELETE CCA -------------------------------- //
+    // ----------------------------------------- USER STORY 8 - DELETE CCA (Method) -------------------------------- //
 
 	public static boolean deleteCCA(ArrayList<CCA> ccaList, String title) {
 		boolean delete = false;
