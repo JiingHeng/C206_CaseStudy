@@ -18,6 +18,7 @@ public class C206_CaseStudy {
 				23456780, 11111111);
 		studentList.add(James);
 		studentList.add(Molly);
+		
 		registeredUser.add(James1);
 		registeredUser.add(Molly1);
 
@@ -26,7 +27,6 @@ public class C206_CaseStudy {
 		CCA football = new CCA("Football", "Do you think you are the next futbol star?", 20, "Monday", "2pm-5pm",
 				"Football Field", "Jonathan");
 		ccaList.add(scouts);
-
 		ccaList.add(football);
 		
 		// For user to login or register to the system
@@ -65,10 +65,11 @@ public class C206_CaseStudy {
 						System.out.println("Successfully Registered!");
 						System.out.println("Your Student ID is: " + studentID);
 						System.out.println("Your Registration ID is: " + intRandom);
-						
 					}
 				}
-
+				
+				
+	
 			} else if (option == 2) {
 				// write code for student/parent login
 				boolean login = false;
@@ -120,7 +121,7 @@ public class C206_CaseStudy {
 					System.out.println(ccaDetails); //print the whole string
 					char toDelete = Helper.readChar("Do you want to delete this CCA?(y/n) > ");
 					
-					if(toDelete == 'y') {
+					if(toDelete == 'y' || toDelete == 'Y') {
 						boolean deleted = C206_CaseStudy.deleteCCA(ccaList, deleteTitle); 
 						
 						if(deleted == true) {
@@ -139,16 +140,12 @@ public class C206_CaseStudy {
 			} else {
 				System.out.println("Invalid option");
 			}
-						
-		}
-
-
+		
+					
 		}
 		System.out.println("GoodBye!");
-				}
-			}
-		
-	
+
+		}
 
 	private static void viewAllStudents(ArrayList<Student> studentList) {
 		// View All Student
@@ -284,53 +281,6 @@ public class C206_CaseStudy {
 			}
 		}
 	}
-
-	
-
-	public static void adminMenu() {
-
-		Helper.line(30, "=");
-		System.out.println("Admin Profile");
-		Helper.line(30, "=");
-
-		System.out.println("1. Add Student to the System");
-		System.out.println("2. View Students/Parents");
-		System.out.println("3. Delete Students/Parents");
-		System.out.println("4. Add CCA");
-		System.out.println("5. Edit CCA");
-		System.out.println("6. Add CCA Category");
-		System.out.println("7. Delete CCA Category");
-		System.out.println("8. View CCA Category");
-		// add more options if needed
-
-		int option = -1;
-
-		while (option != 3) {
-
-			adminMenu();
-			option = Helper.readInt("Enter choice > ");
-			if (option == 1) {
-				// write code here
-			} else if (option == 2) {
-				// write code here
-			} else if (option == 3) {
-				// write code here
-			} else if (option == 4) {
-				// write code here
-			} else if (option == 5) {
-				// write code here
-			} else if (option == 6) {
-				// write code here
-			} else if (option == 7) {
-				// write code here
-			} else if (option == 8) {
-				// write code here
-			} else {
-				System.out.println("Invalid option!");
-			}
-
-		}
-	}
 	
 	//Delete the CCA
 	public static boolean deleteCCA(ArrayList<CCA> ccaList, String title) {
@@ -343,5 +293,6 @@ public class C206_CaseStudy {
 		}
 		return delete;
 	}
+}
 
 
