@@ -26,7 +26,6 @@ public class C206_CaseStudy {
 		CCA football = new CCA("Football", "Do you think you are the next futbol star?", 20, "Monday", "2pm-5pm",
 				"Football Field", "Jonathan");
 		ccaList.add(scouts);
-
 		ccaList.add(football);
 		
 		// For user to login or register to the system
