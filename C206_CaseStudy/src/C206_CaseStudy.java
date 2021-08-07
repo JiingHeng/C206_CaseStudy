@@ -143,9 +143,9 @@ public class C206_CaseStudy {
 
 
 		}
-		System.out.println("GoodBye!");
-				}
-			}
+//		System.out.println("GoodBye!");
+//				}
+//			}
 		
 	
     
@@ -304,6 +304,7 @@ public class C206_CaseStudy {
 			}
 		}
 		return delete;
+	}
 	}
 
 
