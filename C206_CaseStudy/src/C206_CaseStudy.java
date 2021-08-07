@@ -136,6 +136,8 @@ public class C206_CaseStudy {
 						deleteStudent(studentList);
 					} else if (adminOption == 4) {
 						//Add CCA
+						boolean addedCCA = true;
+						
 						
 						
 					} else if (adminOption == 5) {
