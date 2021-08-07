@@ -105,14 +105,11 @@ public class C206_CaseStudy {
 			Menu();
 			option = Helper.readInt("Enter choice > ");
 
-<<<<<<< HEAD
+
 		}
-=======
-		}System.out.println("GoodBye!");
+		System.out.println("GoodBye!");
 
-	>>>>>>>branch'master'
-
-	of https:// github.com/JiingHeng/C206_CaseStudy.git
+	
 	}
 
 	private static void viewAllStudents(ArrayList<Student> studentList) {
