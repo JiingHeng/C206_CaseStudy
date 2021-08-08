@@ -142,14 +142,16 @@ public class C206_CaseStudy {
 						C206_CaseStudy.viewAllCCA(ccaList);
 					} else if (adminOption == 6) {
 						//delete CCA
-						C206_CaseStudy.updateCCA(ccaList);
-//						deleteCCA(ccaList);
+						deleteCCA(ccaList);
 					} else if (adminOption == 7) {
 						
 					} else if (adminOption == 8) {
 						
 					} else if (adminOption == 9) {
 
+					} else if (adminOption == 11) {
+						//Update CCA details
+						C206_CaseStudy.updateCCA(ccaList);
 					}
 				} else {
 					System.out.println("Wrong username or password");
