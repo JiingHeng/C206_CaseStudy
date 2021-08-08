@@ -355,55 +355,7 @@ public class C206_CaseStudy {
 		return deleted;
 	}
 
-	// ---------------------------------------------------------------USER STORY 16
-	// - UPDATE CCA DETAILS FOR SPRINT 2----------------------------------//
-
-	public static void updateCCA(ArrayList<CCA> ccaList) {
-		String ccaToChange = Helper.readString("Enter which CCA to update > ");
-		for (int i = 0; i < ccaList.size(); i++) {
-			if (ccaList.get(i).getTitle().contains(ccaToChange)) {
-				String output = "";
-
-				output += String.format("%-10s %-60s %-15s %-20s %-20s %-20s %-20s %-20s\n", "CCA NAME", "DESCRIPTION",
-						"CCA CAPACITY", "DAY", "TIME", "VENUE", "INSTRUCTOR", "CATEGORY");
-
-				output += String.format("%-10s %-60s %-15d %-20s %-20s %-20s %-20s %-20s\n", ccaList.get(i).getTitle(),
-						ccaList.get(i).getDescription(), ccaList.get(i).getSize(), ccaList.get(i).getDay(),
-						ccaList.get(i).getTime(), ccaList.get(i).getVenue(), ccaList.get(i).getInstructor(),
-						ccaList.get(i).getCategory());
-				System.out.println(output);
-
-				String newDescription = Helper.readString("Enter new description for the CCA > ");
-				int newClassSize = Helper.readInt("Enter new class size for CCA > ");
-				String newDay = Helper.readString("Enter the new day for CCA (Monday) > ");
-				String newTime = Helper.readString("Enter the new Time for CCA > ");
-				String newVenue = Helper.readString("Enter new Venue for CCA > ");
-				String newInstructor = Helper.readString("Enter new Instructor for CCA > ");
-				String newCategory = Helper.readString("Enter new Category for CCA > ");
-
-				if (newDescription.isEmpty() == false && newClassSize > 0 && newDay.isEmpty() == false
-						&& newVenue.isEmpty() == false
-						&& newInstructor.isEmpty() == false & newCategory.isEmpty() == false) {
-					ccaList.get(i).setDescription(newDescription);
-					ccaList.get(i).setSize(newClassSize);
-					ccaList.get(i).setDay(newDay);
-					ccaList.get(i).setTime(newTime);
-					ccaList.get(i).setVenue(newVenue);
-					ccaList.get(i).setInstructor(newInstructor);
-					ccaList.get(i).setCategory(newCategory);
-				}
-
-				String result = String.format("The CCA detail for %s has been updated!", ccaToChange);
-				System.out.println(result);
-				break;
-
-			} else {
-				String output = String.format("The CCA, %s does not exist.", ccaToChange);
-				System.out.println(output);
-				break;
-			}
-		}
-	}
+	
 
 
 //	 To let the user login (Not Completed Yet)
@@ -481,6 +433,56 @@ public class C206_CaseStudy {
 		}
 		return output;
 	}
+	
+	// ---------------------------------------------------------------USER STORY 16
+		// - UPDATE CCA DETAILS FOR SPRINT 2----------------------------------//
+
+		public static void updateCCA(ArrayList<CCA> ccaList) {
+			String ccaToChange = Helper.readString("Enter which CCA to update > ");
+			for (int i = 0; i < ccaList.size(); i++) {
+				if (ccaList.get(i).getTitle().contains(ccaToChange)) {
+					String output = "";
+
+					output += String.format("%-10s %-60s %-15s %-20s %-20s %-20s %-20s %-20s\n", "CCA NAME", "DESCRIPTION",
+							"CCA CAPACITY", "DAY", "TIME", "VENUE", "INSTRUCTOR", "CATEGORY");
+
+					output += String.format("%-10s %-60s %-15d %-20s %-20s %-20s %-20s %-20s\n", ccaList.get(i).getTitle(),
+							ccaList.get(i).getDescription(), ccaList.get(i).getSize(), ccaList.get(i).getDay(),
+							ccaList.get(i).getTime(), ccaList.get(i).getVenue(), ccaList.get(i).getInstructor(),
+							ccaList.get(i).getCategory());
+					System.out.println(output);
+
+					String newDescription = Helper.readString("Enter new description for the CCA > ");
+					int newClassSize = Helper.readInt("Enter new class size for CCA > ");
+					String newDay = Helper.readString("Enter the new day for CCA (Monday) > ");
+					String newTime = Helper.readString("Enter the new Time for CCA > ");
+					String newVenue = Helper.readString("Enter new Venue for CCA > ");
+					String newInstructor = Helper.readString("Enter new Instructor for CCA > ");
+					String newCategory = Helper.readString("Enter new Category for CCA > ");
+
+					if (newDescription.isEmpty() == false && newClassSize > 0 && newDay.isEmpty() == false
+							&& newVenue.isEmpty() == false
+							&& newInstructor.isEmpty() == false & newCategory.isEmpty() == false) {
+						ccaList.get(i).setDescription(newDescription);
+						ccaList.get(i).setSize(newClassSize);
+						ccaList.get(i).setDay(newDay);
+						ccaList.get(i).setTime(newTime);
+						ccaList.get(i).setVenue(newVenue);
+						ccaList.get(i).setInstructor(newInstructor);
+						ccaList.get(i).setCategory(newCategory);
+					}
+
+					String result = String.format("The CCA detail for %s has been updated!", ccaToChange);
+					System.out.println(result);
+					break;
+
+				} else {
+					String output = String.format("The CCA, %s does not exist.", ccaToChange);
+					System.out.println(output);
+					break;
+				}
+			}
+		}
 
 // ------------------------------------------------------------------------ MENUS ----------------------------------------------------------- // 
 
