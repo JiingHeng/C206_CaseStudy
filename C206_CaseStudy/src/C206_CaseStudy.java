@@ -316,7 +316,7 @@ public class C206_CaseStudy {
 	// --------------------------------------------------------------USER STORY 8 -
 	// DELETE CCA------------------------------------------------//
 
-	public static void deleteCCA(ArrayList<CCA> ccaList) {
+	public static boolean deleteCCA(ArrayList<CCA> ccaList) {
 		String deleteTitle = Helper.readString("Enter the title of the CCA to be deleted: ");
 		boolean deleted = false;
 		for (int i = 0; i < ccaList.size(); i++) {
@@ -331,6 +331,8 @@ public class C206_CaseStudy {
 		} else if (deleted == false) {
 			System.out.println("CCA Not Deleted!");
 		}
+		
+		return deleted;
 	}
 
 	// ---------------------------------------------------------------USER STORY 16
