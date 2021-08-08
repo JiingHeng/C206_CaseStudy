@@ -68,10 +68,13 @@ public class C206_CaseStudyTest {
 		//Test that studentList is not null so can add student account
 		assertNotNull("Test if there is a student arraylist to add student by parent", studentList);
 		
-		//Test that after a parent add account the student arraylist is 1
-		C206_CaseStudy.addStudent(studentList, student);
-		C206_CaseStudy
-		//Test that adding another account will make the size of the arraylist 2
+		//Test that after a parent add account the student arrayList is 1
+		C206_CaseStudy.addStudent(studentList);
+		assertEquals("Test if arraylist size is 1", 1, studentList.size());
+		
+		//Test that item after adding account arrayList is not null
+		C206_CaseStudy.addStudent(studentList);
+		assertNotNull("Test if arrayList is not null after adding item", studentList);
 	}
 
 }
