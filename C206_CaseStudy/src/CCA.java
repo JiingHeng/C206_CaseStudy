@@ -19,6 +19,10 @@ public class CCA {
 		this.instructor = instructor;
 		this.category = category;
 	}
+	
+	public CCA(String category) {
+		this.category = category;
+	}
 
 	public String getTitle() {
 		return title;

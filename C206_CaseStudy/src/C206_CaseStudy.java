@@ -28,9 +28,31 @@ public class C206_CaseStudy {
 		CCA scouts = new CCA("Scouts", "Learn survival skills!", 20, "Friday", "3pm-7pm", "Back of School", "Denzel", "Lifeskills");
 		CCA football = new CCA("Football", "Do you think you are the next futbol star?", 20, "Monday", "2pm-5pm",
 				"Football Field", "Jonathan", "Sports");
+		CCA football1 = new CCA("Football", "Do you think you are the next futbol star?", 20, "Monday", "2pm-5pm",
+				"Football Field", "Jonathan", "Sports");
 		ccaList.add(scouts);
 		ccaList.add(football);
-
+		ccaList.add(football1);
+		
+		ArrayList<CCA> ccaCategory = new ArrayList<CCA>();
+		String msg = "";
+		CCA cat = new CCA(ccaList.get(0).getCategory()); 
+		ccaCategory.add(cat); 
+		for(int i = 0; i<ccaList.size(); i++) { 
+			String category = ccaList.get(i).getCategory(); 
+			for (int j = 1; j < ccaList.size(); j++) { 
+				if(category.equalsIgnoreCase(ccaList.get(j).getCategory())) { 
+					break; 
+				} else {
+					cat = new CCA(ccaList.get(j).getCategory());
+					ccaCategory.add(cat);
+					break;
+				}
+				
+			}
+			
+		}
+			
 		// For user to login or register to the system
 
 		Menu();
@@ -146,11 +168,11 @@ public class C206_CaseStudy {
 						//delete CCA
 						deleteCCA(ccaList);
 					} else if (adminOption == 7) {
-						
+						addCCACategory(ccaCategory);
 					} else if (adminOption == 8) {
-						
+						deleteCCACategory(ccaCategory);
 					} else if (adminOption == 9) {
-
+						viewAllCCACategory(ccaCategory);
 					}
 				} else {
 					System.out.println("Wrong username or password");
@@ -329,7 +351,71 @@ public class C206_CaseStudy {
 		return access;
 	}
 
-	
-
-	
+	// ---------------------------USER STORY 13 - To ADD CCA Category
+	// ------------------------------- //
+	public static void addCCACategory(ArrayList<CCA> ccaCategory) {
+		boolean dupli = false;
+					
+		String categoryName = Helper.readString("Enter Category Name: ");
+					
+		for (int i = 0; i < ccaCategory.size(); i++) {
+			if (categoryName.equalsIgnoreCase(ccaCategory.get(i).getCategory())) {
+				dupli = true;
+			}
+		}
+					
+		if (dupli == false) {
+			CCA newCat = new CCA(categoryName);
+			ccaCategory.add(newCat);
+			String msg = "";
+			msg += String.format("The Category, %s has been added into the system", categoryName);
+			System.out.println(msg);
+		} else {
+			System.out.println("There should be no duplicate category names");
+		}
+					
+					
+		}
+				
+	// ---------------------------USER STORY 14 - To DELETE CCA Category
+	// ------------------------------- //
+	public static void deleteCCACategory(ArrayList<CCA> ccaCategory) {
+					
+		boolean isDeleted = false;
+		String categoryNameToDel = Helper.readString("Enter Category Name to Delete: ");
+								
+		for (int i = 0; i < ccaCategory.size(); i++) {
+			if (categoryNameToDel.equals(ccaCategory.get(i).getCategory())) {
+				isDeleted = true;
+				if(isDeleted == true) {
+					ccaCategory.remove(i);
+					System.out.println("Category " + categoryNameToDel + " is deleted from the system");
+					break;
+				} else {
+					System.out.println("Not deleted");
+				}
+			} else if(i+1==ccaCategory.size()) {
+				System.out.println("No such CCA Category is found in the system");
+				break;
+				}
+			}			
+		}		
+		
+		// ---------------------------USER STORY 15 - To View all CCA Category
+			// ------------------------------- //
+			public static void viewAllCCACategory( ArrayList<CCA> ccaCategory) {
+				String output = String.format("%-10s\n", "CCA CATEGORY NAME");
+				output += retrieveCCACategory(ccaCategory);
+				System.out.println(output);
+			}
+			
+			// To retrieve the CCA CATEGORY
+			private static String retrieveCCACategory( ArrayList<CCA> ccaCategory) {
+				String output = ""; 
+				
+				for (int i = 0; i < ccaCategory.size(); i++) {
+					output += String.format("%-10s\n", ccaCategory.get(i).getCategory());
+				}
+				return output;
+			}
 }
