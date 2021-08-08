@@ -96,7 +96,7 @@ public class C206_CaseStudyTest {
 
 	
 	
-	//----------------------------------------------------USER STORY 6 - ADD CCA --------------------------------------------------------------------//
+	//----------------------------------------------------User Story 6 - Add CCA --------------------------------------------------------------------//
 	@Test
 	public void addCCATest() {
 		//Test if CCAList is not null so we can add new CCA -boundary
@@ -117,7 +117,7 @@ public class C206_CaseStudyTest {
 	}
 	
 	
-	//----------------------------------------------------USER STORY 7 - VIEW CCA ---------------------------------------------------------------------//
+	//----------------------------------------------------User story 7 - View CCA ---------------------------------------------------------------------//
 	@Test
 	public void retrieveCCATest() {
 		//Test if CCAList is not null but empty - boundary
@@ -142,7 +142,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that viewAllCCAList", testOutput, allCCA);
 	}
 	
-	//-------------------------------------------------USER STORY 8 - DELETE CCA -----------------------------------------------------------// 
+	//-------------------------------------------------User story 8 - Delete CCA -----------------------------------------------------------// 
 	@Test
 	public void deleteCCATest() {
 		//Test that the CCA list is not empty - boundary
@@ -155,6 +155,15 @@ public class C206_CaseStudyTest {
 		
 		//Given an empty list - error condition 
 		assertNotNull("Test if the array is null",ccaList);
+		
+	}
+	
+	//------------------------------------------------User Story 16 - Update CCA details --------------------------------------------------------//
+	@Test
+	public void updateCCADetailsTest() {
+		//Test that the cca list is not empty - boundary
+		assertNotNull("Test if there is no empty ArrayList to update from", ccaList);
+		
 		
 	}
 	
