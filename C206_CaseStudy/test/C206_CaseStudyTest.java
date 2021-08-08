@@ -17,6 +17,10 @@ public class C206_CaseStudyTest {
 	private ArrayList<registeredUser> registeredUser;
 	private ArrayList<CCA> ccaCategory;
 	
+	public C206_CaseStudyTest() {
+		super();
+	}
+	
 	@Before
 	public void setUp() throws Exception {
 		//prepare test data
@@ -55,12 +59,36 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addStudent(studentList, sl2)
 	}
 	
+	//----------------------------------------------------USER STORY 6 - ADD CCA --------------------------------------------------------------------//
 	@Test
 	public void addCCATest() {
 		//Test if CCAList is not null so we can add new CCA -boundary
 		assertNotNull("Test that there is an ArrayList to add CCA", ccaList);
 		
-		//Given that 
+		//Given that the list is empty list, after adding 1 cca, the size of the cca is 1 - normal
+		//The cca just added is as same as the first cca of the list
+//		C206_CaseStudy.addCCACategory(ccaList);
+		C206_CaseStudy.addCCACategory(ccaList);
+		assertEquals("Check that CCA arrayList size is 1", 1, ccaList.size());
+		assertSame("Check that CCA arrayList is added", cca, ccaList.get(1));
+		
+	}
+	
+	
+	//----------------------------------------------------USER STORY 7 - VIEW CCA ---------------------------------------------------------------------//
+	@Test
+	public void viewCCATest() {
+		//Test if CCAList is not null but empty - boundary
+		assertNotNull("Test if there is a valid CCA ArrayList to View CCA", ccaList);
+		
+		//Test if the list of CCA retrieved from the C206_CaseStudy is empty - boundary
+		String allCCA = C206_CaseStudy.viewAllCCA(ccaList);
+		String testOutput = "";
+		assertEquals("Check that ViewCCAList", testOutput, allCCA);
+		
+		//Given an empty list, after adding 2 items, test if the size of the list is 2 - normal
+		C206_CaseStudy.add
+		
 	}
 
 }
