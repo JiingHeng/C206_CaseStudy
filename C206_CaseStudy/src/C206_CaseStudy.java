@@ -203,7 +203,7 @@ public class C206_CaseStudy {
 
 	// --------------------------------- USER STORY 1 - Add Student
 	// --------------------------------------- //
-	private static void addStudent(ArrayList<Student> studentList) {
+	public static void addStudent(ArrayList<Student> studentList) {
 		// Add Student
 		String studentName = Helper.readString("Enter Student Name: ");
 		int studentID = Helper.readInt("Enter Student ID: ");
@@ -221,7 +221,7 @@ public class C206_CaseStudy {
 
 	// ----------------------------------- USER STORY 2 - View All Student
 	// ---------------------------------//
-	private static void viewAllStudents(ArrayList<Student> studentList) {
+	public static void viewAllStudents(ArrayList<Student> studentList) {
 		// View All Student
 		System.out.println(String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s", "Name", "Student ID",
 				"Grade/Class", "Student ID", "Parent Name", "Parent email", "Parent Number"));
@@ -235,7 +235,7 @@ public class C206_CaseStudy {
 
 	// ---------------------------------- USER STORY 3 - Delete Student
 	// ------------------------------------ //
-	private static void deleteStudent(ArrayList<Student> studentList) {
+	public static void deleteStudent(ArrayList<Student> studentList) {
 		// Delete Student
 		int studentID = Helper.readInt("Enter Student ID to delete > ");
 		for (int i = 0; i < studentList.size(); i++) {
@@ -251,7 +251,7 @@ public class C206_CaseStudy {
 	// --------------------------------------------------------------USER STORY 6 -
 	// ADD CCA ----------------------------------------------------//
 
-	private static void addCCA(ArrayList<CCA> ccaList) {
+	public static void addCCA(ArrayList<CCA> ccaList) {
 		boolean isDuplicate = false;
 		String newTitle = Helper.readString("Enter new CCA Title > ");
 		for (int i = 0; i < ccaList.size(); i++) {
@@ -288,7 +288,7 @@ public class C206_CaseStudy {
 
 	// ---------------------------------------------------USER STORY 7 - To View all
 	// CCA ----------------------------------------------//
-	private static String retrieveCCAList(ArrayList<CCA> ccaList) {
+	public static String retrieveCCAList(ArrayList<CCA> ccaList) {
 		String output = "";
 
 		for (int i = 0; i < ccaList.size(); i++) {
@@ -316,7 +316,7 @@ public class C206_CaseStudy {
 	// --------------------------------------------------------------USER STORY 8 -
 	// DELETE CCA------------------------------------------------//
 
-	private static void deleteCCA(ArrayList<CCA> ccaList) {
+	public static void deleteCCA(ArrayList<CCA> ccaList) {
 		String deleteTitle = Helper.readString("Enter the title of the CCA to be deleted: ");
 		boolean deleted = false;
 		for (int i = 0; i < ccaList.size(); i++) {
@@ -336,7 +336,7 @@ public class C206_CaseStudy {
 	// ---------------------------------------------------------------USER STORY 16
 	// - UPDATE CCA DETAILS FOR SPRINT 2----------------------------------//
 
-	private static void updateCCA(ArrayList<CCA> ccaList) {
+	public static void updateCCA(ArrayList<CCA> ccaList) {
 		String ccaToChange = Helper.readString("Enter which CCA to update > ");
 		for (int i = 0; i < ccaList.size(); i++) {
 			if (ccaList.get(i).getTitle().contains(ccaToChange)) {
@@ -400,7 +400,7 @@ public class C206_CaseStudy {
 	}
 
 	// ---------- CCA Coord Menu -------------- //
-	private static void adminMenuList() {
+	public static void adminMenuList() {
 		Helper.line(30, "=");
 		System.out.println("CCA Coordinator Profile");
 		Helper.line(30, "=");
@@ -512,7 +512,7 @@ public class C206_CaseStudy {
 	}
 
 	// To retrieve the CCA CATEGORY
-	private static String retrieveCCACategory(ArrayList<CCA> ccaCategory) {
+	public static String retrieveCCACategory(ArrayList<CCA> ccaCategory) {
 		String output = "";
 
 		for (int i = 0; i < ccaCategory.size(); i++) {
