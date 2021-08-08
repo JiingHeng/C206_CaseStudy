@@ -11,11 +11,13 @@ public class C206_CaseStudyTest {
 	private CCA cca;
 	private registeredUser user;
 	private CCA category;
+	private boolean registered;
 	
 	private ArrayList<Student> studentList;
 	private ArrayList<CCA> ccaList;
 	private ArrayList<registeredUser> registeredUser;
 	private ArrayList<CCA> ccaCategory;
+	
 	
 	@Before
 	public void setUp() throws Exception {
@@ -41,19 +43,19 @@ public class C206_CaseStudyTest {
 		assertTrue("C206_CaseStudy_SampleTest ",true);
 	}
 	
-	@Test
-	public void addStudentTest() {
-		//test if studentList is not null so can add new item - boundary
-		assertNotNull("Test that there is student ArrayList to add students", studentList);
-		
-		//Given that after adding 1 item into an empty list the new list size is 1
-		C206_CaseStudy.addStudent(studentList, registeredUser);
-		String getOutput = "";
-		assertEquals("Chech that viewAllStudent", getOutput, getStudent);
-		
-		//test that after adding 2 items into an empty list, the new list size is 2
-		C206_CaseStudy.addStudent(studentList, sl2)
-	}
+//	@Test
+//	public void addStudentTest() {
+//		//test if studentList is not null so can add new item - boundary
+//		assertNotNull("Test that there is student ArrayList to add students", studentList);
+//		
+//		//Given that after adding 1 item into an empty list the new list size is 1
+//		C206_CaseStudy.addStudent(studentList, registeredUser);
+//		String getOutput = "";
+//		assertEquals("Chech that viewAllStudent", getOutput, getStudent);
+//		
+//		//test that after adding 2 items into an empty list, the new list size is 2
+//		C206_CaseStudy.addStudent(studentList, sl2)
+//	}
 	
 	@Test
 	public void addCCATest() {
@@ -63,18 +65,36 @@ public class C206_CaseStudyTest {
 		//Given that 
 	}
 	
+	
+// ------------------------------------- User Case 4 - Parent Register ---------------------------------------------------------- //	
 	@Test
-	public void parentRegister() {
+	public void parentRegisterTest() {
 		//Test that studentList is not null so can add student account
-		assertNotNull("Test if there is a student arraylist to add student by parent", studentList);
+		assertNotNull("Test if there is a student arraylist to add student by parent", registeredUser);
 		
 		//Test that after a parent add account the student arrayList is 1
-		C206_CaseStudy.addStudent(studentList);
+		C206_CaseStudy.parentRegister(studentList, registeredUser, registered);
+		assertEquals("Test if arraylist size is 1", 1, registeredUser.size());
+		
+		//Test that item after adding account arrayList is not null
+		C206_CaseStudy.parentRegister(studentList, registeredUser, registered);
+		assertNotNull("Test if arrayList is not null after adding item", registeredUser);
+	}
+	
+	// ------------------------------------- User Case 5 - Student Register ---------------------------------------------------------- //	
+	@Test
+	public void studentRegisterTest() {
+		//Test that studentList is not null but empty - boundary
+		assertNotNull("Test that student can add their account if they are primary 4 ", registeredUser);
+		
+		//Test that after a parent add account the student arrayList is 1
+		C206_CaseStudy.studentRegister(studentList, registeredUser, registered);
 		assertEquals("Test if arraylist size is 1", 1, studentList.size());
 		
 		//Test that item after adding account arrayList is not null
-		C206_CaseStudy.addStudent(studentList);
-		assertNotNull("Test if arrayList is not null after adding item", studentList);
+		C206_CaseStudy.studentRegister(studentList, registeredUser, registered);
+		assertNotNull("Test if arrayList is not null after adding item", registeredUser);
 	}
+	
 
 }
