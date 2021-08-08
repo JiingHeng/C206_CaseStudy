@@ -90,5 +90,16 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.add
 		
 	}
+	
+	@Test
+	public void parentRegister() {
+		//Test that studentList is not null so can add student account
+		assertNotNull("Test if there is a student arraylist to add student by parent", studentList);
+		
+		//Test that after a parent add account the student arraylist is 1
+		C206_CaseStudy.addStudent(studentList, student);
+		C206_CaseStudy
+		//Test that adding another account will make the size of the arraylist 2
+	}
 
 }
