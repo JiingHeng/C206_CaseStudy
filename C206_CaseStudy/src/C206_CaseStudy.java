@@ -135,13 +135,11 @@ public class C206_CaseStudy {
 					} else if (adminOption == 3) {
 						deleteStudent(studentList);
 					} else if (adminOption == 4) {
-						//Add CCA
-						boolean addedCCA = true;
-						
-						
-						
+						//Add CCA							
+						addCCA(ccaList);
 					} else if (adminOption == 5) {
-						System.out.println(retrieveCCAList(ccaList));
+						//View all CCA
+						C206_CaseStudy.viewAllCCA(ccaList);
 					} else if (adminOption == 6) {
 						//delete CCA
 						deleteCCA(ccaList);
@@ -165,24 +163,11 @@ public class C206_CaseStudy {
 		System.out.println("GoodBye!");
 
 		}
-
-	private static void deleteCCA(ArrayList<CCA> ccaList) {
-		String deleteTitle = Helper.readString("Enter the title of the CCA to be deleted: ");
-		boolean deleted = false;
-		for (int i = 0; i < ccaList.size(); i++) {
-			if(deleteTitle.equalsIgnoreCase(ccaList.get(i).getTitle())) {
-				ccaList.remove(i);
-				deleted = true;
-				break;
-			}
-		}
-		if(deleted == true) {
-			System.out.println("CCA Deleted!");
-		}else if(deleted == false) {
-			System.out.println("CCA Not Deleted!");
-		}
-	}
-
+	
+	
+	
+	
+	
 
 	// --------------------------------------------------------------------------------------------
 	// METHODS ---------------------------------------------------------------- //
@@ -233,6 +218,88 @@ public class C206_CaseStudy {
 			}
 		}
 	}
+	
+	//--------------------------------------------------------------USER STORY 6 - ADD CCA ----------------------------------------------------//
+
+		private static void addCCA(ArrayList<CCA> ccaList) {
+			boolean isDuplicate = false;
+			String newTitle = Helper.readString("Enter new CCA Title > ");
+			for (int i = 0; i < ccaList.size(); i++) {
+				if (newTitle.equalsIgnoreCase(ccaList.get(i).getTitle())) {
+					isDuplicate = true;
+				}
+			}
+			
+			if(isDuplicate == false) {
+				String description = Helper.readString("Enter the description of the new CCA > ");
+				int size = Helper.readInt("Enter CCA class size > ");
+				String day = Helper.readString("Enter the day of CCA (Monday)> ");
+				String time = Helper.readString("Enter the time of the CCA (4pm-5pm) > ");
+				String venue = Helper.readString("Enter the venue for CCA > ");
+				String instructor = Helper.readString("Enter the instructor name > ");
+				String category = Helper.readString("Enter the CCA category > ");
+				
+				if(newTitle.isEmpty() == false && description.isEmpty() == false && size > 0 && day.isEmpty() == false && time.isEmpty() == false && venue.isEmpty() == false && instructor.isEmpty() == false && category.isEmpty() == false) {
+					CCA newCCA = new CCA(newTitle, description, size, day, time, venue, instructor, category);
+					ccaList.add(newCCA);
+					String msg = String.format("The new CCA, %s is added!", newTitle);
+					System.out.println(msg);
+				} else {
+					String msg = String.format("The CCA, %s is not added because something is missing", newTitle);
+					System.out.println(msg);
+				}
+			} else {
+				String msg = String.format("There is duplicate of the CCA %s", newTitle);
+				System.out.println(msg);
+			}
+		}
+		
+		//---------------------------------------------------USER STORY 7 - To View all CCA ----------------------------------------------//
+		private static String retrieveCCAList(ArrayList<CCA> ccaList) {
+			String output = "";
+
+			for (int i = 0; i < ccaList.size(); i++) {
+
+				output += String.format("%-10s %-60s %-15d %-20s %-20s %-20s %-20s %-20s\n", ccaList.get(i).getTitle(),
+						ccaList.get(i).getDescription(), ccaList.get(i).getSize(), ccaList.get(i).getDay(),
+						ccaList.get(i).getTime(), ccaList.get(i).getVenue(), ccaList.get(i).getInstructor(),ccaList.get(i).getCategory());
+			}
+			return output;
+		}
+
+		// ---------------------------USER STORY 7 - To View all CCA
+		// ------------------------------- //
+		public static void viewAllCCA(ArrayList<CCA> ccaList) {
+			// C206_CaseStudy.setHeader("CCA LIST");
+			String output = "";
+			output += String.format("%-10s %-60s %-15s %-20s %-20s %-20s %-20s %-20s\n", "CCA NAME", "DESCRIPTION",
+					"CCA CAPACITY", "DAY", "TIME", "VENUE", "INSTRUCTOR","CATEGORY");
+			
+				output += retrieveCCAList(ccaList);
+				System.out.println(output);		
+		}
+		
+		
+		//--------------------------------------------------------------USER STORY 8 - DELETE CCA------------------------------------------------//
+		
+		private static void deleteCCA(ArrayList<CCA> ccaList) {
+			String deleteTitle = Helper.readString("Enter the title of the CCA to be deleted: ");
+			boolean deleted = false;
+			for (int i = 0; i < ccaList.size(); i++) {
+				if (deleteTitle.equalsIgnoreCase(ccaList.get(i).getTitle())) {
+					ccaList.remove(i);
+					deleted = true;
+					break;
+				}
+			}
+			if (deleted == true) {
+				System.out.println("CCA Deleted!");
+			} else if (deleted == false) {
+				System.out.println("CCA Not Deleted!");
+			}
+		}
+	
+	
 
 // ------------------------------------------------------------------------ MENUS ----------------------------------------------------------- // 
 
@@ -296,29 +363,9 @@ public class C206_CaseStudy {
 		}
 	}
 	
-	// To retrieve the CCAList
-	private static String retrieveCCAList(ArrayList<CCA> ccaList) {
-		String output = "";
 
-		for (int i = 0; i < ccaList.size(); i++) {
+	
 
-			output += String.format("%-10s %-30s %-10d %-10s %-20s %-10s %-20s\n", ccaList.get(i).getTitle(),
-					ccaList.get(i).getDescription(), ccaList.get(i).getSize(), ccaList.get(i).getDay(),
-					ccaList.get(i).getTime(), ccaList.get(i).getVenue(), ccaList.get(i).getInstructor());
-		}
-		return output;
-	}
-
-
-	// ---------------------------USER STORY 7 - To View all CCA
-	// ------------------------------- //
-	public static void viewAllCCA(ArrayList<CCA> ccaList) {
-		// C206_CaseStudy.setHeader("CCA LIST");
-		String output = String.format("%-10s %-30s %-10d %-10s %-20s %-10s %-20s\n", "CCA NAME", "DESCRIPTION",
-				"CCA CAPACITY", "DAY", "TIME", "VENUE", "INSTRUCTOR");
-		output += retrieveCCAList(ccaList);
-		System.out.println(output);
-	}
 
 	// To let the user login (Not Completed Yet)
 	public static boolean doStudentParentLogin(Student student, String studentID, String registrationID) {
@@ -329,7 +376,4 @@ public class C206_CaseStudy {
 		return access;
 	}
 
-	
-
-	
 }
