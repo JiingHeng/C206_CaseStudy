@@ -1,13 +1,34 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class C206_CaseStudyTest {
-
+	private Student student;
+	private CCA cca;
+	private registeredUser user;
+	private CCA category;
+	
+	private ArrayList<Student> studentList;
+	private ArrayList<CCA> ccaList;
+	private ArrayList<registeredUser> registeredUser;
+	private ArrayList<CCA> ccaCategory;
+	
 	@Before
 	public void setUp() throws Exception {
+		//prepare test data
+		student = new Student("James", 20012345, "P4", "Desmond Lee", "Tom", "Tom@gmail.com", 12345678);
+		cca = new CCA("Scouts", "Learn survival skills!", 20, "Friday", "3pm-7pm", "Back of School", "Denzel", "Lifeskills");
+		user = new registeredUser("James", 20012345, "P4", "Desmond Lee", "Tom", "Tom@gmail.com", 12345678, 00000000);
+		category = new CCA("Lifeskills");
+		
+		studentList = new ArrayList<Student>();
+		ccaList = new ArrayList<CCA>();
+		registeredUser = new ArrayList<registeredUser>();
+		ccaCategory= new ArrayList<CCA>();
 	}
 
 	@After
@@ -32,6 +53,14 @@ public class C206_CaseStudyTest {
 		
 		//test that after adding 2 items into an empty list, the new list size is 2
 		C206_CaseStudy.addStudent(studentList, sl2)
+	}
+	
+	@Test
+	public void addCCATest() {
+		//Test if CCAList is not null so we can add new CCA -boundary
+		assertNotNull("Test that there is an ArrayList to add CCA", ccaList);
+		
+		//Given that 
 	}
 
 }
