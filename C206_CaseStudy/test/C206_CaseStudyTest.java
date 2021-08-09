@@ -59,7 +59,7 @@ public class C206_CaseStudyTest {
 		assertTrue("C206_CaseStudy_SampleTest ", true);
 	}
 
-	// Updated Hao Wen
+	// ------------------------------------- User Case 1 - Add Student into system ----------------------------------------------------------
 	@Test
 	public void testAddStudent() {
 		// test if studentList is not null, so that we can add new item - boundary
@@ -73,6 +73,7 @@ public class C206_CaseStudyTest {
 		assertSame("test that student is added same as the item of the list?", student, studentList.get(0));
 	}
 
+	//------------------------------------- User Case 2 - View All Student in the system ----------------------------------------------------------
 	@Test
 	public void testViewStudent() {
 		// Test if Item list is not null but empty, so that we can add new item
@@ -97,6 +98,7 @@ public class C206_CaseStudyTest {
 
 	}
 
+	//------------------------------------- User Case 3 - Delete Student in system ----------------------------------------------------------
 	@Test
 	public void testDeleteStudent() {
 		// write your code here
@@ -107,9 +109,9 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addStudent(studentList, student);
 		assertEquals("Test if that the  arraylist size is 1?", 1, studentList.size());
 
-		// remove p1
+		// Remove student from the studentList, and check if the studentList is empty
 		studentList.remove(student);
-		assertEquals("Test if parent list is empty", 0, studentList.size());
+		assertEquals("Test if student list is empty", 0, studentList.size());
 
 	}
 
