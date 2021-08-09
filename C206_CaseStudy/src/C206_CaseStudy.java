@@ -113,9 +113,21 @@ public class C206_CaseStudy {
 					int adminOption = Helper.readInt("Enter choice > ");
 					if (adminOption == 1) {
 						// add student
-						addStudent(studentList);
+						String studentName = Helper.readString("Enter Student Name: ");
+						int studentID = Helper.readInt("Enter Student ID: ");
+						String classGrade = Helper.readString("Enter Student's Class Grade: ");
+						String teacherName = Helper.readString("Enter Teacher's Name: ");
+						String parentName = Helper.readString("Enter Parent's Name: ");
+						String parentEmail = Helper.readString("Enter Parent's Email: ");
+						int parentNumber = Helper.readInt("Enter Parent's Contact Number: ");
+
+						Student student = new Student(studentName, studentID, classGrade, teacherName, parentName, parentEmail,
+								parentNumber);
+						addStudent(studentList, student);
 					} else if (adminOption == 2) {
-						viewAllStudents(studentList);
+						System.out.println(String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s", "Name", "Student ID",
+								"Grade/Class", "Student ID", "Parent Name", "Parent email", "Parent Number"));
+						System.out.println(viewAllStudents(studentList));
 					} else if (adminOption == 3) {
 						deleteStudent(studentList);
 					} else if (adminOption == 4) {
@@ -158,34 +170,27 @@ public class C206_CaseStudy {
 
 	// --------------------------------- USER STORY 1 - Add Student
 	// --------------------------------------- //
-	public static void addStudent(ArrayList<Student> studentList) {
+	public static void addStudent(ArrayList<Student> studentList, Student student) {
 		// Add Student
-		String studentName = Helper.readString("Enter Student Name: ");
-		int studentID = Helper.readInt("Enter Student ID: ");
-		String classGrade = Helper.readString("Enter Student's Class Grade: ");
-		String teacherName = Helper.readString("Enter Teacher's Name: ");
-		String parentName = Helper.readString("Enter Parent's Name: ");
-		String parentEmail = Helper.readString("Enter Parent's Email: ");
-		int parentNumber = Helper.readInt("Enter Parent's Contact Number: ");
-
-		Student student = new Student(studentName, studentID, classGrade, teacherName, parentName, parentEmail,
-				parentNumber);
+		
 		studentList.add(student);
 		System.out.println("Student has been added into the system");
 	}
 
 	// ----------------------------------- USER STORY 2 - View All Student
 	// ---------------------------------//
-	public static void viewAllStudents(ArrayList<Student> studentList) {
+
+	public static String viewAllStudents(ArrayList<Student> studentList) {
+
 		// View All Student
-		System.out.println(String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s", "Name", "Student ID",
-				"Grade/Class", "Student ID", "Parent Name", "Parent email", "Parent Number"));
+		String output = "";
 		for (int i = 0; i < studentList.size(); i++) {
-			System.out.println(String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s", studentList.get(i).getName(),
+			output += String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s\n", studentList.get(i).getName(),
 					studentList.get(i).getStudentID(), studentList.get(i).getGradeClass(),
 					studentList.get(i).getTeacher(), studentList.get(i).getParentName(),
-					studentList.get(i).getParentEmail(), studentList.get(i).getParentContactNo()));
+					studentList.get(i).getParentEmail(), studentList.get(i).getParentContactNo());
 		}
+		return output;
 	}
 
 	// ---------------------------------- USER STORY 3 - Delete Student

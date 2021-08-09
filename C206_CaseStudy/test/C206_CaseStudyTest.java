@@ -28,6 +28,11 @@ public class C206_CaseStudyTest {
 	@Before
 	public void setUp() throws Exception {
 		// prepare test data
+		studentList = new ArrayList<Student>();
+		ccaList = new ArrayList<CCA>();
+		registeredUser = new ArrayList<registeredUser>();
+		ccaCategory = new ArrayList<CCA>();
+
 		student = new Student("James", 20012345, "P4", "Desmond Lee", "Tom", "Tom@gmail.com", 12345678);
 		cca = new CCA("Scouts", "Learn survival skills!", 20, "Friday", "3pm-7pm", "Back of School", "Denzel",
 				"Lifeskills");
@@ -37,12 +42,7 @@ public class C206_CaseStudyTest {
 				"Football Field", "Jonathan", "Sports");
 		cca3 = new CCA("Football", "Do you think you are the next futbol star?", 20, "Monday", "2pm-5pm",
 				"Football Field", "Jonathan", "Sports");
-		
-		
-		studentList = new ArrayList<Student>();
-		ccaList = new ArrayList<CCA>();
-		registeredUser = new ArrayList<registeredUser>();
-		ccaCategory = new ArrayList<CCA>();
+
 	}
 
 	@After
@@ -59,19 +59,61 @@ public class C206_CaseStudyTest {
 		assertTrue("C206_CaseStudy_SampleTest ", true);
 	}
 
-//	@Test
-//	public void addStudentTest() {
-//		//test if studentList is not null so can add new item - boundary
-//		assertNotNull("Test that there is student ArrayList to add students", studentList);
-//		
-//		//Given that after adding 1 item into an empty list the new list size is 1
-//		C206_CaseStudy.addStudent(studentList, registeredUser);
-//		String getOutput = "";
-//		assertEquals("Chech that viewAllStudent", getOutput, getStudent);
-//		
-//		//test that after adding 2 items into an empty list, the new list size is 2
-//		C206_CaseStudy.addStudent(studentList, sl2)
-//	}	
+	// Updated Hao Wen
+	@Test
+	public void testAddStudent() {
+		// test if studentList is not null, so that we can add new item - boundary
+		assertNotNull("Test that there is student ArrayList to add students", studentList);
+
+		// Given that after adding 1 item into an empty list the new list size is 1
+		C206_CaseStudy.addStudent(studentList, student);
+		assertEquals("Test if that arraylist size is 1?", 1, studentList.size());
+
+		// test that after adding 2 items into an empty list, the new list size is 2
+		assertSame("test that student is added same as the item of the list?", student, studentList.get(0));
+	}
+
+	@Test
+	public void testViewStudent() {
+		// Test if Item list is not null but empty, so that we can add new item
+		assertNotNull("Test if there is valid arraylist to add?", studentList);
+
+		// test if the list retrieved from the C206_CaseStudy is empty
+		String allStudent = C206_CaseStudy.viewAllStudents(studentList);
+		String testOutput = "";
+		assertEquals("Check that ViewAllsList", testOutput, allStudent);
+
+		// Given an empty list, after adding 1 items, test if the size of the list is 1
+		C206_CaseStudy.addStudent(studentList, student);
+		assertEquals("Test if that the  arraylist size is 1?", 1, studentList.size());
+
+		// test that if the expected output string is same as the list of student retrieved from C206_CaseStudy
+		allStudent = C206_CaseStudy.viewAllStudents(studentList);
+
+		testOutput = String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s\n", "James", "20012345", "P4",
+				"Desmond Lee", "Tom", "Tom@gmail.com", "12345678");
+
+		assertEquals("Check that viewAllStudents", testOutput, allStudent);
+
+	}
+
+	@Test
+	public void testDeleteStudent() {
+		// write your code here
+
+		assertNotNull("Test if there is valid arraylist to add to", studentList);
+
+		// Given an empty list, after adding 1 items, test if the size of the list is 1
+		C206_CaseStudy.addStudent(studentList, student);
+		assertEquals("Test if that the  arraylist size is 1?", 1, studentList.size());
+
+		// remove p1
+		studentList.remove(student);
+		assertEquals("Test if parent list is empty", 0, studentList.size());
+
+	}
+
+
 	
 	// ------------------------------------- User Case 4 - Parent Register ---------------------------------------------------------- //	
 		@Test
@@ -182,7 +224,7 @@ public class C206_CaseStudyTest {
 		assertNotNull("Test if the array is null", ccaList); //This is false because it is not an empty list
 
 	}
-	
+
 	// -------------------------------------------------User Story 16 - UpdateCCADetails -------------------------------------------------------------------------//
 	@Test
 	public void updateCCADetailsTest() {
@@ -200,6 +242,4 @@ public class C206_CaseStudyTest {
 		assertFalse("Test if the cca entered does not exist - false", updated2);
 		
 	}
-	
-	
 }
