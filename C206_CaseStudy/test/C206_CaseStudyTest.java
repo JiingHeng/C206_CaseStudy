@@ -15,6 +15,8 @@ public class C206_CaseStudyTest {
 	private boolean registered;
 	private CCA cca2;
 	private CCA cca3;
+	private CCA category2;
+	private CCA category3;
 
 	private ArrayList<Student> studentList;
 	private ArrayList<CCA> ccaList;
@@ -37,12 +39,16 @@ public class C206_CaseStudyTest {
 				"Football Field", "Jonathan", "Sports");
 		cca3 = new CCA("Football", "Do you think you are the next futbol star?", 20, "Monday", "2pm-5pm",
 				"Football Field", "Jonathan", "Sports");
+		category2 = new CCA("Sports");
+		category3 = new CCA("Dancing");
 		
 		
 		studentList = new ArrayList<Student>();
 		ccaList = new ArrayList<CCA>();
 		registeredUser = new ArrayList<registeredUser>();
 		ccaCategory = new ArrayList<CCA>();
+		
+		
 	}
 
 	@After
@@ -181,4 +187,69 @@ public class C206_CaseStudyTest {
 		assertNotNull("Test if the array is null", ccaList); //This is false because it is not an empty list
 
 	}
+	
+	// -------------------------------------------------User story 13 - ADD CCA CATEGORY
+		// -----------------------------------------------------------//
+		@Test
+		public void addCCACategoryTest() {
+			// Test if CCA CATEGORY List is not null so we can add new CCA CATEGORY inside -boundary
+			assertNotNull("Test that the cca category ArrayList is not empty to add CCA", ccaCategory);
+
+			// Given that there is CCA CATEGORY arraylist, after adding 1 cca category, the size of the cca category arraylist is 1 - normal
+			ccaCategory.add(category);
+			assertEquals("Check that CCA CATEGORY arrayList size is 1", 1, ccaCategory.size());
+			assertSame("Check that CCA CATEGORY-Lifeskills is added into the arraylist", category, ccaCategory.get(0));
+
+			// Add the 2nd cca category to the arraylist and check if the cca category arraylist size is 2 which is Lifeskills and Sports
+			ccaCategory.add(category2);
+			assertEquals("Check that CCA CATEGORY arrayList size is 2", 2, ccaCategory.size());
+			assertSame("Check that CCA CATEGORY-Sports is added into the arraylist", category2, ccaCategory.get(1));
+		}
+		
+	// -------------------------------------------------User story 14 - DELETE CCA CATEGORY
+		// -----------------------------------------------------------//
+		@Test
+		public void deleteCCACategoryTest() {
+			// Test if CCA CATEGORY List is not null so we can delete CCA CATEGORY inside - boundary
+			assertNotNull("Test if there is no empty ArrayList to delete from", ccaCategory);
+			ccaCategory.add(category);
+			ccaCategory.add(category2);
+			
+			// Test that the cca category can be deleted - normal
+			Boolean isDeleted = C206_CaseStudy.deleteCCACategory(ccaCategory); //To Set the boolean to the same as the deleteCCA portion
+			assertTrue("Test if cca is deleted - true", isDeleted); //If isDeleted == true meaning the cca can be deleted then is true
+			if (ccaCategory.get(0).equals(category2)) {
+				assertSame("Check that CCA CATEGORY-Lifeskills is deleted from the arraylist", category2, ccaCategory.get(0));
+				assertEquals("Check that CCA CATEGORY arrayList size is 2", 1, ccaCategory.size());
+			} else {
+				assertSame("Check that CCA CATEGORY-Sports is deleted from the arraylist", category, ccaCategory.get(0));
+				assertEquals("Check that CCA CATEGORY arrayList size is 2", 1, ccaCategory.size());
+			}
+		}	
+		
+	// -------------------------------------------------User story 15 - VIEW CCA CATEGORY
+		// -----------------------------------------------------------//
+		@Test
+		public void viewCCACategoryTest() {
+			assertNotNull("Test if there is valid CCA CATEGORY arraylist to retrieve category", ccaCategory);
+			
+			//test if the list of camcorders retrieved from the SourceCentre is empty - boundary
+			String allCCACategory = C206_CaseStudy.retrieveCCAList(ccaCategory);
+			String testOutput = "";
+			assertEquals("Check that ViewAllCCACategory", testOutput, allCCACategory);
+			
+//			//Given an empty list, after adding 2 items, test if the size of the list is 2 - normal
+			ccaCategory.add(category);
+			ccaCategory.add(category2);
+			assertEquals("Test that ccaCategory arraylist size is 2", 2, ccaCategory.size());
+			System.out.println("CCA Category ADDED!");
+			
+			allCCACategory = C206_CaseStudy.retrieveCCAList(ccaCategory); //Retrieve the items from the cca category arraylist
+			
+			for(int i = 0; i<ccaCategory.size();i++) {
+				testOutput += String.format("%-10s\n", ccaCategory.get(i).getCategory());
+			}
+			
+			assertEquals("Test that ViewAllCCACategorylist", testOutput, allCCACategory);
+		}	
 }

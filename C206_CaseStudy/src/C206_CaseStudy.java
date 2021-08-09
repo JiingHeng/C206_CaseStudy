@@ -132,7 +132,7 @@ public class C206_CaseStudy {
 					} else if (adminOption == 8) {
 						deleteCCACategory(ccaCategory);
 					} else if (adminOption == 9) {
-
+						viewAllCCACategory(ccaCategory);
 					} else if (adminOption == 11) {
 						//Update CCA details
 						C206_CaseStudy.updateCCA(ccaList);					}
@@ -394,7 +394,7 @@ public class C206_CaseStudy {
 
 	// ---------------------------USER STORY 14 - To DELETE CCA Category
 	// ------------------------------- //
-	public static void deleteCCACategory(ArrayList<CCA> ccaCategory) {
+	public static Boolean deleteCCACategory(ArrayList<CCA> ccaCategory) {
 
 		boolean isDeleted = false;
 		String categoryNameToDel = Helper.readString("Enter Category Name to Delete: ");
@@ -414,6 +414,7 @@ public class C206_CaseStudy {
 				break;
 			}
 		}
+		return isDeleted;
 	}
 
 	// ---------------------------USER STORY 15 - To View all CCA Category
