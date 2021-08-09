@@ -163,7 +163,7 @@ public class C206_CaseStudy {
 						// add student
 						addStudent(studentList);
 					} else if (adminOption == 2) {
-						viewAllStudents(studentList);
+						System.out.println(viewAllStudents(studentList));
 					} else if (adminOption == 3) {
 						deleteStudent(studentList);
 					} else if (adminOption == 4) {
@@ -203,7 +203,7 @@ public class C206_CaseStudy {
 
 	// --------------------------------- USER STORY 1 - Add Student
 	// --------------------------------------- //
-	private static void addStudent(ArrayList<Student> studentList) {
+	public static void addStudent(ArrayList<Student> studentList) {
 		// Add Student
 		String studentName = Helper.readString("Enter Student Name: ");
 		int studentID = Helper.readInt("Enter Student ID: ");
@@ -221,16 +221,17 @@ public class C206_CaseStudy {
 
 	// ----------------------------------- USER STORY 2 - View All Student
 	// ---------------------------------//
-	private static void viewAllStudents(ArrayList<Student> studentList) {
+	public static String viewAllStudents(ArrayList<Student> studentList) {
 		// View All Student
-		System.out.println(String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s", "Name", "Student ID",
-				"Grade/Class", "Student ID", "Parent Name", "Parent email", "Parent Number"));
+		String output = String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s", "Name", "Student ID",
+				"Grade/Class", "Student ID", "Parent Name", "Parent email", "Parent Number");
 		for (int i = 0; i < studentList.size(); i++) {
-			System.out.println(String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s", studentList.get(i).getName(),
+			output += "\n" + String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s", studentList.get(i).getName(),
 					studentList.get(i).getStudentID(), studentList.get(i).getGradeClass(),
 					studentList.get(i).getTeacher(), studentList.get(i).getParentName(),
-					studentList.get(i).getParentEmail(), studentList.get(i).getParentContactNo()));
+					studentList.get(i).getParentEmail(), studentList.get(i).getParentContactNo());
 		}
+		return output;
 	}
 
 	// ---------------------------------- USER STORY 3 - Delete Student
