@@ -172,7 +172,6 @@ public class C206_CaseStudy {
 	// --------------------------------------- //
 	public static void addStudent(ArrayList<Student> studentList, Student student) {
 		// Add Student
-		
 		studentList.add(student);
 		System.out.println("Student has been added into the system");
 	}
