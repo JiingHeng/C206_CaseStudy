@@ -436,8 +436,9 @@ public class C206_CaseStudy {
 	
 	// ---------------------------------------------------------------USER STORY 16
 		// - UPDATE CCA DETAILS FOR SPRINT 2----------------------------------//
-		public static void updateCCA(ArrayList<CCA> ccaList) {
+		public static boolean updateCCA(ArrayList<CCA> ccaList) {
 			String ccaToChange = Helper.readString("Enter which CCA to update > ");
+			Boolean updated = false;
 			for (int i = 0; i < ccaList.size(); i++) {
 				if (ccaList.get(i).getTitle().contains(ccaToChange)) {
 					String output = "";
@@ -472,6 +473,7 @@ public class C206_CaseStudy {
 					}
 					String result = String.format("The CCA detail for %s has been updated!", ccaToChange);
 					System.out.println(result);
+					updated = true;
 					break;
 
 				} else {
@@ -480,6 +482,7 @@ public class C206_CaseStudy {
 					break;
 				}
 			}
+			return updated;
 		}
 
 // ------------------------------------------------------------------------ MENUS ----------------------------------------------------------- // 
