@@ -71,39 +71,38 @@ public class C206_CaseStudyTest {
 //		
 //		//test that after adding 2 items into an empty list, the new list size is 2
 //		C206_CaseStudy.addStudent(studentList, sl2)
-//	}
+//	}	
+	
+	// ------------------------------------- User Case 4 - Parent Register ---------------------------------------------------------- //	
+		@Test
+		public void parentRegisterTest() {
+			//Test that studentList is not null so can add student account
+			assertNotNull("Test if there is a student arraylist to add student by parent", studentList);
+			
+			//Test that after a parent add account the student arrayList is 1
+			C206_CaseStudy.parentRegister(studentList, registeredUser, registered);
+			assertEquals("Test if arraylist size is 1", 0, studentList.size());
 
-	// ------------------------------------- User Case 4 - Parent Register
-	// ---------------------------------------------------------- //
-	@Test
-	public void parentRegisterTest() {
-		// Test that studentList is not null so can add student account
-		assertNotNull("Test if there is a student arraylist to add student by parent", registeredUser);
+			//Test that item after adding account arrayList is not null
+			C206_CaseStudy.parentRegister(studentList, registeredUser, registered);
+			assertNotNull("Test if arrayList is not null after adding item", studentList);
+		}
+		
+		// ------------------------------------- User Case 5 - Student Register ---------------------------------------------------------- //	
+		@Test
+		public void studentRegisterTest() {
+			//Test that studentList is not null but empty - boundary
+			assertNotNull("Test that student can add their account if they are primary 4 ", studentList);
+			
+			//Test that after a parent add account the student arrayList is 1
+			C206_CaseStudy.studentRegister(studentList, registeredUser, registered);
+			assertEquals("Test if arraylist size is 1", 0, studentList.size());
+			
+			//Test that item after adding account arrayList is not null
+			C206_CaseStudy.studentRegister(studentList, registeredUser, registered);
+			assertNotNull("Test if arrayList is not null after adding item", registeredUser);
+		}
 
-		// Test that after a parent add account the student arrayList is 1
-		C206_CaseStudy.parentRegister(studentList, registeredUser, registered);
-		assertEquals("Test if arraylist size is 1", 1, registeredUser.size());
-
-		// Test that item after adding account arrayList is not null
-		C206_CaseStudy.parentRegister(studentList, registeredUser, registered);
-		assertNotNull("Test if arrayList is not null after adding item", registeredUser);
-	}
-
-	// ------------------------------------- User Case 5 - Student Register
-	// ---------------------------------------------------------- //
-	@Test
-	public void studentRegisterTest() {
-		// Test that studentList is not null but empty - boundary
-		assertNotNull("Test that student can add their account if they are primary 4 ", registeredUser);
-
-		// Test that after a parent add account the student arrayList is 1
-		C206_CaseStudy.studentRegister(studentList, registeredUser, registered);
-		assertEquals("Test if arraylist size is 1", 1, studentList.size());
-
-		// Test that item after adding account arrayList is not null
-		C206_CaseStudy.studentRegister(studentList, registeredUser, registered);
-		assertNotNull("Test if arrayList is not null after adding item", registeredUser);
-	}
 
 	// ----------------------------------------------------User Story 6 - Add CCA
 	// --------------------------------------------------------------------//
@@ -148,23 +147,15 @@ public class C206_CaseStudyTest {
 
 		// test if expected output string same as the list of cca retrieved from the
 		// C206_CaseStudy
-		ccaList.add(cca3);
-		allCCA = C206_CaseStudy.retrieveCCAList(ccaList);
-		testOutput += String.format("%-10s %-60s %-15s %-20s %-20s %-20s %-20s %-20s\n", "CCA NAME", "DESCRIPTION",
-				"CCA CAPACITY", "DAY", "TIME", "VENUE", "INSTRUCTOR", "CATEGORY");
+		ccaList.add(cca3); //Adding third cca into the arraylist
+		allCCA = C206_CaseStudy.retrieveCCAList(ccaList); //Retrieve the items from the main cca
+	
 		for(int i =0; i <ccaList.size(); i++) {
 			testOutput += String.format("%-10s %-60s %-15d %-20s %-20s %-20s %-20s %-20s\n", ccaList.get(i).getTitle(),
 					ccaList.get(i).getDescription(), ccaList.get(i).getSize(), ccaList.get(i).getDay(),
 					ccaList.get(i).getTime(), ccaList.get(i).getVenue(), ccaList.get(i).getInstructor(),
 					ccaList.get(i).getCategory());
 		}
-//		testOutput += String.format("%-10s %-60s %-15d %-20s %-20s %-20s %-20s %-20s\n", "Scouts",
-//				"Learn survival skills!", 20, "Friday", "3pm-7pm", "Back of School", "Denzel", "Lifeskills");
-//		testOutput += String.format("%-10s %-60s %-15d %-20s %-20s %-20s %-20s %-20s\n", "Football", "Do you think you are the next futbol star?", 20, "Monday", "2pm-5pm",
-//				"Football Field", "Jonathan", "Sports");
-//		testOutput += String.format("%-10s %-60s %-15d %-20s %-20s %-20s %-20s %-20s\n", "Football", "Do you think you are the next futbol star?", 20, "Monday", "2pm-5pm",
-//				"Football Field", "Jonathan", "Sports");
-
 		assertEquals("Test that viewAllCCAList", testOutput, allCCA);
 	}
 
@@ -176,7 +167,8 @@ public class C206_CaseStudyTest {
 		assertNotNull("Test if there is no empty ArrayList to delete from", ccaList);
 		ccaList.add(cca);
 		ccaList.add(cca2);
-
+		C206_CaseStudy.addCCA(ccaList);
+		
 		// Test that the cca can be deleted - normal
 		Boolean isDeleted = C206_CaseStudy.deleteCCA(ccaList); //To Set the boolean to the same as the deleteCCA portion
 		assertTrue("Test if cca is deleted - true", isDeleted); //If isDeleted == true meaning the cca can be deleted then is true
