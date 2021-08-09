@@ -436,7 +436,6 @@ public class C206_CaseStudy {
 	
 	// ---------------------------------------------------------------USER STORY 16
 		// - UPDATE CCA DETAILS FOR SPRINT 2----------------------------------//
-
 		public static void updateCCA(ArrayList<CCA> ccaList) {
 			String ccaToChange = Helper.readString("Enter which CCA to update > ");
 			for (int i = 0; i < ccaList.size(); i++) {
@@ -471,7 +470,6 @@ public class C206_CaseStudy {
 						ccaList.get(i).setInstructor(newInstructor);
 						ccaList.get(i).setCategory(newCategory);
 					}
-
 					String result = String.format("The CCA detail for %s has been updated!", ccaToChange);
 					System.out.println(result);
 					break;
