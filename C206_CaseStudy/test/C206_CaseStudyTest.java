@@ -74,7 +74,7 @@ public class C206_CaseStudyTest {
 	// ------------------------------------- User Case 1 - Add Student into system ----------------------------------------------------------
 	@Test
 	public void testAddStudent() {
-		// test if studentList is not null, so that we can add new item - boundary
+		// test if studentList is not null, so that we can add new item 
 		assertNotNull("Test that there is student ArrayList to add students", studentList);
 
 		// Given that after adding 1 item into an empty list the new list size is 1
@@ -88,10 +88,10 @@ public class C206_CaseStudyTest {
 	//------------------------------------- User Case 2 - View All Student in the system ----------------------------------------------------------
 	@Test
 	public void testViewStudent() {
-		// Test if Item list is not null but empty, so that we can add new item
+		// Test if Item studentList is not null but empty, so that we can add new item
 		assertNotNull("Test if there is valid arraylist to add?", studentList);
 
-		// test if the list retrieved from the C206_CaseStudy is empty
+		// test if the studentlist retrieved from the C206_CaseStudy is empty
 		String allStudent = C206_CaseStudy.viewAllStudents(studentList);
 		String testOutput = "";
 		assertEquals("Check that ViewAllsList", testOutput, allStudent);
@@ -113,8 +113,7 @@ public class C206_CaseStudyTest {
 	//------------------------------------- User Case 3 - Delete Student in system ----------------------------------------------------------
 	@Test
 	public void testDeleteStudent() {
-		// write your code here
-
+		// Test if Item studentList is not null but empty, so that we can add new item
 		assertNotNull("Test if there is valid arraylist to add to", studentList);
 
 		// Given an empty list, after adding 1 items, test if the size of the list is 1
