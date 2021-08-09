@@ -154,17 +154,18 @@ public class C206_CaseStudyTest {
 
 		// Given that the list is empty list, after adding 1 cca, the size of the cca is 1 - normal
 		// The cca just added is as same as the first cca of the list
-		assertEquals("Check that CCA arrayList size is 1", 0, ccaList.size()); // To Check if the ccaList has 1 element
+		ccaList.add(cca);
+		assertEquals("Check that CCA arrayList size is 1", 1, ccaList.size()); // To Check if the ccaList has 1 element
 		for (int i = 0; i < ccaList.size(); i++) {
 			assertSame("Check that CCA arrayList is added", cca, ccaList.get(i)); //Check if there are only 1 element since here i can only be 0 because the size of the array is 1
 		}
 
 		// Add another cca. Test the size of the list is 2? - normal
 		// The cca just added is as same as the second cca of the list
-		ccaList.add(cca);
-		assertEquals("Test that cca arrayList size is 2", 1, ccaList.size()); // To Check if the ccaList has 2 element
+		ccaList.add(cca2);
+		assertEquals("Test that cca arrayList size is 2", 2, ccaList.size()); // To Check if the ccaList has 2 element
 		for (int i = 1; i < ccaList.size(); i++) {
-			assertSame("Test that cca is added", ccaList.get(i)); //Check if there are 2 element, use get(1) because I want to check if the size of the array is 2
+			assertSame("Test that cca is added", cca2 ,ccaList.get(i)); //Check if there are 2 element, use get(1) because I want to check if the size of the array is 2
 		}
 	}
 
