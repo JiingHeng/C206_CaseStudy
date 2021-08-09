@@ -68,26 +68,26 @@ public class C206_CaseStudyTest {
 		@Test
 		public void parentRegisterTest() {
 			//Test that studentList is not null so can add student account
-			assertNotNull("Test if there is a student arraylist to add student by parent", registeredUser);
+			assertNotNull("Test if there is a student arraylist to add student by parent", studentList);
 			
 			//Test that after a parent add account the student arrayList is 1
 			C206_CaseStudy.parentRegister(studentList, registeredUser, registered);
-			assertEquals("Test if arraylist size is 1", 1, registeredUser.size());
-			
+			assertEquals("Test if arraylist size is 1", 0, studentList.size());
+
 			//Test that item after adding account arrayList is not null
 			C206_CaseStudy.parentRegister(studentList, registeredUser, registered);
-			assertNotNull("Test if arrayList is not null after adding item", registeredUser);
+			assertNotNull("Test if arrayList is not null after adding item", studentList);
 		}
 		
 		// ------------------------------------- User Case 5 - Student Register ---------------------------------------------------------- //	
 		@Test
 		public void studentRegisterTest() {
 			//Test that studentList is not null but empty - boundary
-			assertNotNull("Test that student can add their account if they are primary 4 ", registeredUser);
+			assertNotNull("Test that student can add their account if they are primary 4 ", studentList);
 			
 			//Test that after a parent add account the student arrayList is 1
 			C206_CaseStudy.studentRegister(studentList, registeredUser, registered);
-			assertEquals("Test if arraylist size is 1", 1, studentList.size());
+			assertEquals("Test if arraylist size is 1", 0, studentList.size());
 			
 			//Test that item after adding account arrayList is not null
 			C206_CaseStudy.studentRegister(studentList, registeredUser, registered);
@@ -157,6 +157,7 @@ public class C206_CaseStudyTest {
 		assertNotNull("Test if the array is null",ccaList);
 		
 	}
+		
 	
 	//------------------------------------------------User Story 16 - Update CCA details --------------------------------------------------------//
 	@Test
