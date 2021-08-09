@@ -59,6 +59,7 @@ public class C206_CaseStudyTest {
 		assertTrue("C206_CaseStudy_SampleTest ", true);
 	}
 
+	// Hao Wen Updated V1.1
 	// ------------------------------------- User Case 1 - Add Student into system ----------------------------------------------------------
 	@Test
 	public void testAddStudent() {
