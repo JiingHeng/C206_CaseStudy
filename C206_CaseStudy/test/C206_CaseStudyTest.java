@@ -59,6 +59,7 @@ public class C206_CaseStudyTest {
 		assertTrue("C206_CaseStudy_SampleTest ", true);
 	}
 
+	// Updated Hao Wen
 	@Test
 	public void testAddStudent() {
 		// test if studentList is not null, so that we can add new item - boundary
