@@ -17,6 +17,7 @@ public class Student {
 	private String parentName;
 	private String parentEmail;
 	private int parentContactNo;
+	private String CCA;
 	
 	public Student(String name, int studentID, String gradeClass, String teacher, String parentName, 
 			String parentEmail, int parentContactNo) {
@@ -37,62 +38,76 @@ public class Student {
 		this.gradeClass = gradeClass;
 		this.teacher = teacher;
 	}
+	        
+    public Student(String name, int studentID, String gradeClass,String teacher, String CCA) {
+        super();
+        this.name = name;
+        this.studentID = studentID;
+        this.gradeClass = gradeClass;
+        this.CCA = CCA;
+        this.teacher = teacher;
+    }
+    
+    public String getCCA() {
+        return CCA;
+    }
+    
+    public void setCCA(String cCA) {
+        CCA = cCA;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public int getStudentID() {
-		return studentID;
-	}
+    public int getStudentID() {
+        return studentID;
+    }
 
-	public void setStudentID(int studentID) {
-		this.studentID = studentID;
-	}
+    public void setStudentID(int studentID) {
+        this.studentID = studentID;
+    } 
 
-	public String getGradeClass() {
-		return gradeClass;
-	}
+    public String getGradeClass() {
+        return gradeClass;
+    }
 
-	public void setGradeClass(String gradeClass) {
-		this.gradeClass = gradeClass;
-	}
+    public void setGradeClass(String gradeClass) {
+        this.gradeClass = gradeClass;
+    }
+ 
+    public String getTeacher() {
+        return teacher;
+    }
 
-	public String getTeacher() {
-		return teacher;
-	}
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+    public String getParentName() {
+        return parentName;
+    }
 
-	public void setTeacher(String teacher) {
-		this.teacher = teacher;
-	}
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
+    }
 
-	public String getParentName() {
-		return parentName;
-	}
+    public String getParentEmail() {
+        return parentEmail;
+    }
 
-	public void setParentName(String parentName) {
-		this.parentName = parentName;
-	}
+    public void setParentEmail(String parentEmail) {
+        this.parentEmail = parentEmail;
+    }
+ 
+    public int getParentContactNo() {
+        return parentContactNo;
+    }
 
-	public String getParentEmail() {
-		return parentEmail;
-	}
-
-	public void setParentEmail(String parentEmail) {
-		this.parentEmail = parentEmail;
-	}
-
-	public int getParentContactNo() {
-		return parentContactNo;
-	}
-
-	public void setParentContactNo(int parentContactNo) {
-		this.parentContactNo = parentContactNo;
-	}
-	
-	
+    public void setParentContactNo(int parentContactNo) {
+        this.parentContactNo = parentContactNo;
+    }
 }

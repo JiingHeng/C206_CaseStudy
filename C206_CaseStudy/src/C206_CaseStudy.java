@@ -89,6 +89,7 @@ public class C206_CaseStudy {
 				// -----------------------------------------------//
 				// write code for student/parent login
 				boolean login = false;
+				String msg2 ="";
 				int studentID1 = Helper.readInt("Enter Student ID > ");
 				int regID = Helper.readInt("Enter Registration ID > ");
 				for (int i = 0; i < registeredUser.size(); i++) {
@@ -96,7 +97,25 @@ public class C206_CaseStudy {
 							&& regID == registeredUser.get(i).getRegID()) {
 						login = true;
 						System.out.println("Apply for CCA");
-					}
+	                       
+                        C206_CaseStudy.viewAllCCA(ccaList); //This is to print the CCA for them to choose
+                       
+                        String chooseCCA = Helper.readString("Enter CCA to apply > "); //asking user for input
+                        if(chooseCCA.equalsIgnoreCase(ccaList.get(i).getTitle())) { //if CCA entered exist in the ccaList
+//                            addStudentCCA(studentList,ccaList);
+                            String studentName = studentList.get(i).getName();
+                            String teacher = studentList.get(i).getTeacher();
+                            String gradeClass = studentList.get(i).getGradeClass();
+                            int studentID = studentID1;
+                            String CCA = chooseCCA;
+                            Student studentIntoCCA = new Student(studentName, studentID, gradeClass, teacher, CCA);
+//                            studentInCCA.add(studentIntoCCA);
+//                            Student studentIntoCCA = new Student(,studentID1, chooseCCA);
+                            msg2 += String.format("Student ID %d has been added to %s CCA", studentIntoCCA.getStudentID(), studentIntoCCA.getCCA());
+                            System.out.println(msg2);
+                        } else {
+                            System.out.println("No such CCA");
+                        }
 				}
 				if (login == false) {
 					System.out.println("Wrong Student ID or Registration ID");
@@ -104,7 +123,7 @@ public class C206_CaseStudy {
 
 				// ---------------------------- CCA coord Login
 				// -----------------------------------------------//
-
+				}
 			} else if (option == 3) {
 				String username = Helper.readString("Enter username > ");
 				String password = Helper.readString("Enter password > ");
@@ -144,7 +163,9 @@ public class C206_CaseStudy {
 					} else if (adminOption == 8) {
 						deleteCCACategory(ccaCategory);
 					} else if (adminOption == 9) {
-
+						viewAllCCACategory(ccaCategory);
+					} else if (adminOption == 10) {
+						viewStudentsInCCA(studentList, ccaList);
 					} else if (adminOption == 11) {
 						//Update CCA details
 						C206_CaseStudy.updateCCA(ccaList);					}
@@ -155,14 +176,12 @@ public class C206_CaseStudy {
 			} else {
 				System.out.println("Invalid option");
 			}
+			
 			Menu();
 			option = Helper.readInt("Enter choice > ");
 		}
 		System.out.println("GoodBye!");
-
 	}
-
-
 	
 
 	// --------------------------------------------------------------------------------------------
@@ -398,7 +417,7 @@ public class C206_CaseStudy {
 
 	// ---------------------------USER STORY 14 - To DELETE CCA Category
 	// ------------------------------- //
-	public static void deleteCCACategory(ArrayList<CCA> ccaCategory) {
+	public static Boolean deleteCCACategory(ArrayList<CCA> ccaCategory) {
 
 		boolean isDeleted = false;
 		String categoryNameToDel = Helper.readString("Enter Category Name to Delete: ");
@@ -418,6 +437,7 @@ public class C206_CaseStudy {
 				break;
 			}
 		}
+		return isDeleted;
 	}
 
 	// ---------------------------USER STORY 15 - To View all CCA Category
@@ -488,6 +508,19 @@ public class C206_CaseStudy {
 			}
 			return updated;
 		}
+		
+		// ---------------------------------- View Students in CCA
+        // ------------------------------------ //
+        public static String viewStudentsInCCA(ArrayList<Student> studentList, ArrayList<CCA> ccaList) {
+            // View Student in CCA
+        	String output = "";
+            output += String.format("%-20s %-20s %-20s %-20s", "Name", "Student ID", "Grade/Class", "CCA");
+            for (int i = 0; i < studentList.size() && i < ccaList.size(); i++) {
+                output +=String.format("%-20s %-20s %-20s %-20s", studentList.get(i).getName(),
+                        studentList.get(i).getStudentID(), studentList.get(i).getGradeClass(), ccaList.get(i).getTitle());
+            }
+            return output;
+        }
 
 // ------------------------------------------------------------------------ MENUS ----------------------------------------------------------- // 
 
@@ -520,6 +553,8 @@ public class C206_CaseStudy {
 		System.out.println("7. Add CCA Category");
 		System.out.println("8. Delete CCA Category");
 		System.out.println("9. View CCA Category");
+		System.out.println("10. View Students Registered in CCA");
+		System.out.println("11. Update CCA Details");
 		System.out.println("0. Back");
 	}
 
