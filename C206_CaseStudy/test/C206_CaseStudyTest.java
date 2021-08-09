@@ -212,13 +212,13 @@ public class C206_CaseStudyTest {
 		assertNotNull("Test if there is no empty ArrayList to delete from", ccaList);
 		ccaList.add(cca);
 		ccaList.add(cca2);
-		C206_CaseStudy.addCCA(ccaList);
+		
 		
 		// Test that the cca can be deleted - normal
 		Boolean isDeleted = C206_CaseStudy.deleteCCA(ccaList); //To Set the boolean to the same as the deleteCCA portion
 		assertTrue("Test if cca is deleted - true", isDeleted); //If isDeleted == true meaning the cca can be deleted then is true
 		
-		//Test that the cca does not exist - normal
+		//Test that the cca does not exist - Error
 		Boolean isDeleted2 = C206_CaseStudy.deleteCCA(ccaList); //To Set the second boolean to the same as the deleteCCA portion
 		assertFalse("Test if cca does not exist - false", isDeleted2); //If isDeleted == false meaning the cca does not exist then is false
 
@@ -227,4 +227,21 @@ public class C206_CaseStudyTest {
 
 	}
 
+	// -------------------------------------------------User Story 16 - UpdateCCADetails -------------------------------------------------------------------------//
+	@Test
+	public void updateCCADetailsTest() {
+		//Test that the CCA ArrayList is not null
+		assertNotNull("Test if there is CCA arrayList", ccaList); 
+		
+		ccaList.add(cca);
+		ccaList.add(cca2);
+		//Test that the cca can be updated - normal
+		Boolean updated = C206_CaseStudy.updateCCA(ccaList);
+		assertTrue("Test if the cca details can be updated - true", updated);
+		
+		//Test that the cca entered to update does not exist - Error
+		Boolean updated2 = C206_CaseStudy.updateCCA(ccaList);
+		assertFalse("Test if the cca entered does not exist - false", updated2);
+		
+	}
 }
