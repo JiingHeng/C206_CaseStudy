@@ -229,15 +229,41 @@ public class C206_CaseStudyTest {
 		// Test that the cca can be deleted - normal
 		Boolean isDeleted = C206_CaseStudy.deleteCCA(ccaList); //To Set the boolean to the same as the deleteCCA portion
 		assertTrue("Test if cca is deleted - true", isDeleted); //If isDeleted == true meaning the cca can be deleted then is true
+		System.out.println("");
 		
 		//Test that the cca does not exist - Error
 		Boolean isDeleted2 = C206_CaseStudy.deleteCCA(ccaList); //To Set the second boolean to the same as the deleteCCA portion
 		assertFalse("Test if cca does not exist - false", isDeleted2); //If isDeleted == false meaning the cca does not exist then is false
-
+		
 		// Given an empty list - error condition
 		assertNotNull("Test if the array is null", ccaList); //This is false because it is not an empty list
 
 	}
+	
+	//-------------------------------------------------------User Story 9 - View Students Registered for CCA ------------------------------------------//
+	@Test
+    public void retrieveStudentInCCATest() {
+        // Test if CCAList is not null but empty - boundary
+        assertNotNull("Test if there is a valid CCA ArrayList to View Student in CCA", ccaList);
+        assertNotNull("Test if there is a valid Student ArrayList to View Student in CCA", studentList);
+
+ 
+
+        // Test if the list of CCA retrieved from the C206_CaseStudy is empty - boundary
+        String allStudents = C206_CaseStudy.viewStudentsInCCA(studentList, ccaList);
+        String testOutput = "";
+        assertEquals("Check that viewStudentsInCCA", testOutput, allStudents); //Test that the viewStudentsInCCA is the same as testOutput
+
+ 
+
+        allStudents = C206_CaseStudy.retrieveCCAList(ccaList); //Retrieve the items from the main cca
+    
+        for (int i = 0; i < studentList.size() && i < ccaList.size(); i++) {
+            System.out.println(String.format("%-20s %-20s %-20s %-20s", studentList.get(i).getName(),
+                    studentList.get(i).getStudentID(), studentList.get(i).getGradeClass(), ccaList.get(i).getTitle()));
+        }
+        assertEquals("Test that viewAllStudentInCCAList", testOutput, allStudents);
+    }
 
 	
 	// -------------------------------------------------User story 13 - ADD CCA CATEGORY
@@ -303,8 +329,7 @@ public class C206_CaseStudyTest {
 			}
 			
 			assertEquals("Test that ViewAllCCACategorylist", testOutput, allCCACategory);
-		}	
-
+		}
 
 	// -------------------------------------------------User Story 16 - UpdateCCADetails -------------------------------------------------------------------------//
 	@Test
